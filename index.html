@@ -626,6 +626,11 @@ Wilayah Persekutuan Kuala Lumpur
 
 <script>
 
+window.onerror = function(message, source, lineno, colno) {
+  alert("JS错误：" + message + "\n第 " + lineno + " 行");
+};
+</script>
+<script>
 const PRODUCTS = [
 {
 name:"达利园派 巧克力 / 草莓 / 蛋黄",
