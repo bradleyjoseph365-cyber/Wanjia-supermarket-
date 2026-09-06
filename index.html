@@ -3377,12 +3377,10 @@ name.includes(keyword);
 
 if(categoryOK && searchOK){
 
-product.style.display="block";
+product.style.setProperty("display","block","important");
 visible++;
 
-}else{
-
-product.style.display="none";
+}product.style.setProperty("display","none","important");
 
 }
 
