@@ -3346,9 +3346,15 @@ Wilayah Persekutuan Kuala Lumpur
 <div>中国味，就在万家。</div>
 </div>
 </footer>
-
+<div id="cart" style="position:fixed;bottom:20px;right:20px;background:#d71920;color:white;padding:14px 20px;border-radius:30px;font-weight:bold;z-index:9999;box-shadow:0 4px 15px rgba(0,0,0,.2);">
+🛒 购物车 <span id="cartCount">0</span>
+</div>
 <script>
+let cartCount=0;
 
+function updateCart(){
+  document.getElementById("cartCount").textContent=cartCount;
+}
 const search=document.getElementById("search");
 const products=[...document.querySelectorAll(".product")];
 const filters=[...document.querySelectorAll(".filter")];
@@ -3410,17 +3416,17 @@ activeCategory=button.dataset.cat;
 
 filterProducts();
 
-});
-
-});
-
-filterProducts();
 document.querySelectorAll(".add-cart").forEach(button=>{
   button.addEventListener("click",()=>{
-    alert("已加入购物车！");
+    cartCount++;
+    updateCart();
   });
 });
+
 </script>
+
+
+
 
 </body>
 </html>
