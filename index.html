@@ -500,6 +500,7 @@ data-name="达利园派 巧克力 草莓 蛋黄">
 <div class="price">
 RM9.00
 </div>
+<button class="add-cart">🛒 加入购物车</button>
 </div>
 </article>
 
@@ -3414,7 +3415,11 @@ filterProducts();
 });
 
 filterProducts();
-
+document.querySelectorAll(".add-cart").forEach(button=>{
+  button.addEventListener("click",()=>{
+    alert("已加入购物车！");
+  });
+});
 </script>
 
 </body>
