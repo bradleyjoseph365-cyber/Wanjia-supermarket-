@@ -1,460 +1,388 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>万家中国超市 | Wanjia Chinese Supermarket</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#c9182b">
+<title>万家中国超市｜Wanjia Chinese Supermarket</title>
 
 <style>
-
-*{
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
 
 body{
 margin:0;
-background:#f7f7f5;
-color:#171717;
 font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+background:#f7f7f5;
+color:#171717
 }
 
-button,
-input{
-font:inherit;
-}
-
-button{
-cursor:pointer;
-}
-
-a{
-text-decoration:none;
-}
-
-/* HEADER */
-
-header{
-background:white;
-border-bottom:1px solid #eeeeee;
+nav{
 position:sticky;
 top:0;
 z-index:20;
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(14px);
+border-bottom:1px solid #e9e9e9
 }
 
-.header-inner{
+.nav{
 max-width:1200px;
 margin:auto;
-padding:15px 20px;
+height:70px;
+padding:0 20px;
 display:flex;
 align-items:center;
-justify-content:space-between;
+justify-content:space-between
 }
 
 .logo{
-color:#c9182b;
 font-size:25px;
 font-weight:900;
-letter-spacing:2px;
+color:#c9182b;
+letter-spacing:2px
 }
 
-.logo span{
+.logo small{
 display:block;
-color:#888;
 font-size:10px;
-letter-spacing:4px;
+color:#888;
+letter-spacing:3px;
 text-align:center;
-margin-top:4px;
+margin-top:-4px
 }
 
-.header-cart{
-background:#c9182b;
-color:white;
-border:0;
-border-radius:999px;
-padding:11px 16px;
-font-weight:800;
+.nav a{
+margin-left:22px;
+font-size:14px;
+color:#444;
+text-decoration:none
 }
-
-/* HERO */
 
 .hero{
-background:linear-gradient(
-135deg,
-#fff3e8,
-#ffffff,
-#fae9eb
-);
-padding:55px 20px;
+background:linear-gradient(135deg,#fff5e9,#fff,#faecec);
+padding:75px 20px 65px;
+border-bottom:1px solid #eee
 }
 
-.hero-inner{
+.hero-in{
 max-width:1200px;
-margin:auto;
+margin:auto
 }
 
-.hero-small{
+.eyebrow{
 color:#c9182b;
-font-size:14px;
 font-weight:800;
+font-size:14px
 }
 
-.hero h1{
-font-size:clamp(48px,8vw,82px);
-line-height:1;
+h1{
+font-size:clamp(48px,8vw,86px);
+line-height:.98;
 letter-spacing:-4px;
-margin:15px 0;
+margin:16px 0
 }
 
-.hero h1 span{
-color:#c9182b;
+h1 span{
+color:#c9182b
 }
 
 .hero p{
 max-width:700px;
 color:#666;
-font-size:17px;
+font-size:18px;
 line-height:1.7;
+margin:0 0 28px
 }
 
-.hero-buttons{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:25px;
+.btn{
+display:inline-block;
+padding:13px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:800
 }
 
-.hero-btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:13px 18px;
-border-radius:12px;
-font-weight:800;
-}
-
-.hero-red{
+.red{
 background:#c9182b;
-color:white;
+color:#fff
 }
 
-.hero-white{
-background:white;
-color:#222;
+.white{
+background:#fff;
 border:1px solid #ddd;
+margin-left:8px
 }
 
 .stats{
 display:flex;
 gap:35px;
-flex-wrap:wrap;
-margin-top:35px;
+margin-top:40px;
+flex-wrap:wrap
 }
 
 .stats strong{
 display:block;
-font-size:17px;
+font-size:18px
 }
 
-.stats small{
-color:#777;
+.stats span{
+font-size:13px;
+color:#777
 }
-
-/* MAIN */
 
 main{
 max-width:1200px;
 margin:auto;
-padding:45px 20px 70px;
+padding:60px 20px
 }
 
-.section-title{
+.head{
 display:flex;
 justify-content:space-between;
 align-items:end;
 gap:20px;
+margin-bottom:18px
 }
 
-.section-title h2{
+h2{
 font-size:38px;
-margin:0;
+margin:0
 }
 
-.section-title p{
-color:#777;
-font-size:13px;
+.head p{
+color:#777
 }
-
-/* SEARCH */
 
 .search{
 width:100%;
 padding:16px 18px;
 border:1px solid #ddd;
-background:white;
 border-radius:14px;
+font-size:16px;
 outline:none;
-margin:20px 0 12px;
+background:#fff;
+margin:12px 0
 }
 
 .search:focus{
 border-color:#c9182b;
+box-shadow:0 0 0 3px #c9182b15
 }
 
-/* CATEGORY */
-
-.categories{
+.filters{
 display:flex;
 gap:9px;
-overflow-x:auto;
+overflow:auto;
 padding:8px 0 18px;
+position:sticky;
+top:70px;
+background:#f7f7f5;
+z-index:5
 }
 
-.category{
-flex:none;
+.filter{
 border:1px solid #ddd;
-background:white;
+background:#fff;
 border-radius:999px;
-padding:10px 16px;
-font-weight:700;
+padding:9px 16px;
+white-space:nowrap;
+cursor:pointer;
+font-weight:700
 }
 
-.category.active{
+.filter.active{
 background:#171717;
-color:white;
-border-color:#171717;
+color:#fff;
+border-color:#171717
 }
 
-/* PRODUCTS */
-
-.product-count{
-color:#777;
-font-size:13px;
-margin-bottom:15px;
-}
-
-.product-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:15px;
+gap:15px
 }
 
 .product{
-background:white;
-border:1px solid #e5e5e5;
-border-radius:18px;
+background:#fff;
+border:1px solid #e9e9e9;
+border-radius:16px;
 overflow:hidden;
-transition:.2s;
+transition:.2s
 }
 
-.product-icon{
-height:120px;
-background:#f2f2f2;
+.product:hover{
+transform:translateY(-3px);
+box-shadow:0 12px 28px #0000000d
+}
+
+.picon{
+height:105px;
+background:linear-gradient(135deg,#fafafa,#f1f1f1);
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:48px;
+font-size:45px
 }
 
-.product-body{
-padding:15px;
+.pbody{
+padding:15px
 }
 
-.product-category{
-color:#999;
+.tag{
 font-size:11px;
-margin-bottom:5px;
+color:#999;
+margin-bottom:5px
 }
 
-.product-name{
+.pbody h3{
 font-size:15px;
 line-height:1.45;
-min-height:44px;
-margin:0 0 10px;
+margin:0 0 9px;
+min-height:44px
 }
 
-.product-price{
-color:#c9182b;
-font-size:19px;
+.price{
+font-size:17px;
 font-weight:900;
+color:#c9182b
 }
 
-.add-button{
-width:100%;
-border:0;
-background:#c9182b;
-color:white;
-border-radius:10px;
-padding:10px;
-margin-top:10px;
-font-weight:800;
+.count{
+color:#777;
+font-size:13px;
+margin:5px 0 18px
 }
 
-.pending{
-color:#c9182b;
-font-size:18px;
-font-weight:900;
+.empty{
+display:none;
+padding:45px;
+text-align:center;
+color:#777;
+background:#fff;
+border:1px dashed #ddd;
+border-radius:16px
 }
-
-/* STORE */
 
 .store{
-margin-top:60px;
+margin-top:70px;
 background:#171717;
-color:white;
-border-radius:24px;
-padding:40px;
+color:#fff;
+border-radius:25px;
+padding:45px;
 display:grid;
-grid-template-columns:1.2fr 1fr;
-gap:30px;
+grid-template-columns:1.3fr 1fr;
+gap:30px
 }
 
 .store h2{
-font-size:35px;
-margin-top:0;
+font-size:36px
 }
 
 .store p{
 color:#aaa;
-line-height:1.7;
+line-height:1.7
 }
 
-.store-info{
-display:flex;
-flex-direction:column;
-gap:20px;
+.store-info div{
+padding:15px 0;
+border-bottom:1px solid #333
 }
 
 .store-info span{
 display:block;
 color:#888;
-font-size:12px;
-margin-bottom:5px;
+font-size:12px
 }
 
 .store-info strong{
-font-size:15px;
+font-size:16px
 }
-
-/* FOOTER */
 
 footer{
 background:#101010;
 color:#777;
-padding:30px 20px;
+padding:28px 20px;
+font-size:13px
 }
 
-.footer-inner{
+.foot{
 max-width:1200px;
 margin:auto;
 display:flex;
-justify-content:space-between;
+justify-content:space-between
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
-
-.product-grid{
-grid-template-columns:repeat(3,1fr);
+.grid{
+grid-template-columns:repeat(3,1fr)
 }
-
 .store{
-grid-template-columns:1fr;
+grid-template-columns:1fr
 }
-
 }
 
 @media(max-width:650px){
+.nav a{
+display:none
+}
 
 .hero{
-padding:45px 18px;
+padding-top:55px
 }
 
-.hero h1{
-font-size:52px;
-}
-
-main{
-padding:35px 15px 60px;
-}
-
-.section-title{
-display:block;
-}
-
-.section-title h2{
-font-size:32px;
-}
-
-.product-grid{
+.grid{
 grid-template-columns:repeat(2,1fr);
-gap:10px;
+gap:10px
 }
 
-.product-icon{
-height:95px;
+.picon{
+height:90px
 }
 
-.product-body{
-padding:12px;
+.pbody{
+padding:12px
 }
 
-.product-name{
-font-size:14px;
+.pbody h3{
+font-size:14px
 }
 
 .store{
-padding:28px 20px;
+padding:28px 22px
 }
 
-.footer-inner{
-display:block;
+.head{
+display:block
 }
 
+.head h2{
+font-size:32px
 }
-
+}
 </style>
-
 </head>
 
 <body>
 
-<header>
-
-<div class="header-inner">
-
+<nav>
+<div class="nav">
 <div class="logo">
-
 万家
-
-<span>中国超市</span>
-
+<small>中国超市</small>
 </div>
 
-<button
-class="header-cart"
-type="button"
->
-🛒 购物车 0
-</button>
-
+<div>
+<a href="#products">商品目录</a>
+<a href="#store">门店</a>
 </div>
+</div>
+</nav>
 
-</header>
+<header class="hero">
+<div class="hero-in">
 
-<section class="hero">
-
-<div class="hero-inner">
-
-<div class="hero-small">
-WANJIA CHINESE SUPERMARKET · BUKIT BINTANG
+<div class="eyebrow">
+Wanjia Chinese Supermarket · Bukit Bintang
 </div>
 
 <h1>
@@ -463,62 +391,47 @@ WANJIA CHINESE SUPERMARKET · BUKIT BINTANG
 </h1>
 
 <p>
-从零食、泡面、螺蛳粉、饮料到日常用品与厨房用品，
+从零食、泡面、螺蛳粉到日常用品与厨房用品，
 把熟悉的中国味一次买齐。
 </p>
 
-<div class="hero-buttons">
-
-<a
-class="hero-btn hero-red"
-href="#products"
->
+<a class="btn red" href="#products">
 浏览全部商品
 </a>
 
-<a
-class="hero-btn hero-white"
-target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=201%20Jalan%20Imbi%2C%20Bukit%20Bintang%2C%2055100%20Kuala%20Lumpur"
->
+<a class="btn white" target="_blank"
+href="https://www.google.com/maps/search/?api=1&query=201%20Jalan%20Imbi%2C%20Bukit%20Bintang%2C%2055100%20Kuala%20Lumpur">
 📍 导航到门店
 </a>
-
-</div>
 
 <div class="stats">
 
 <div>
 <strong>10:00 AM — 2:00 AM</strong>
-<small>每日营业</small>
+<span>每日营业</span>
 </div>
 
 <div>
 <strong>商品目录</strong>
-<small>中国商品</small>
+<span>多种中国食品与日用品</span>
 </div>
 
 <div>
 <strong>Bukit Bintang</strong>
-<small>Kuala Lumpur</small>
+<span>Kuala Lumpur</span>
 </div>
 
 </div>
-
 </div>
-
-</section>
+</header>
 
 <main id="products">
 
-<div class="section-title">
-
+<div class="head">
 <h2>商品目录</h2>
-
 <p>
-搜索商品 · 浏览分类
+搜索或按分类浏览 · 未提供价格的商品暂标「价格待更新」
 </p>
-
 </div>
 
 <input
@@ -528,78 +441,1653 @@ type="search"
 placeholder="🔍 搜索商品，例如：奥利奥、康师傅、洗发水…"
 >
 
-<div
-id="categories"
-class="categories"
->
+<div class="filters">
+
+<button class="filter active" data-cat="all">
+全部
+</button>
+
+<button class="filter" data-cat="面包 / 小蛋糕 / 饼干">
+🥐 面包 / 小蛋糕 / 饼干
+</button>
+
+<button class="filter" data-cat="花生 / 瓜子">
+🥜 花生 / 瓜子
+</button>
+
+<button class="filter" data-cat="零食 / 薯片 / 辣条">
+🌶️ 零食 / 薯片 / 辣条
+</button>
+
+<button class="filter" data-cat="泡面 / 米线 / 螺蛳粉">
+🍜 泡面 / 米线 / 螺蛳粉
+</button>
+
+<button class="filter" data-cat="纸巾 / 湿巾 / 洗面巾">
+🧻 纸巾 / 湿巾 / 洗面巾
+</button>
+
+<button class="filter" data-cat="日常用品">
+🧴 日常用品
+</button>
+
+<button class="filter" data-cat="家具 / 厨房用品">
+🍳 家具 / 厨房用品
+</button>
+
 </div>
 
-<div
-id="productCount"
-class="product-count"
->
-商品加载中...
+<div class="count" id="count"></div>
+
+<div class="grid" id="grid">
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="达利园派 巧克力 草莓 蛋黄">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+达利园派 巧克力 / 草莓 / 蛋黄
+</h3>
+
+<div class="price">
+RM9.00
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="达利园 法式软面包">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+达利园-法式软面包
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="达利园 法式小面包">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+达利园-法式小面包
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="达利园 瑞士卷 香蕉 草莓 橙味">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+达利园-瑞士卷 香蕉 / 草莓 / 橙味
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="逗泥 老面包">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+逗泥-老面包
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="然利 金山角 大麦 红丝 巧克力">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+然利-金山角 大麦 / 红丝 / 巧克力
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="铜锣烧 香芋">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+铜锣烧 香芋
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="好丽友 Q蒂 莫卡巧克力">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+好丽友-Q蒂莫卡巧克力
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="好丽友派 抹茶">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+好丽友派-抹茶味
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="虎皮小蛋糕">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+虎皮小蛋糕
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="早餐饼干 原味 牛奶">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+早餐饼干-原味 / 牛奶
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="向日葵饼干 乳酪 柠檬">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+向日葵饼干-乳酪 / 柠檬
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="好丽友 蛋黄派">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+好丽友-蛋黄派
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="米老头蛋黄煎饼 牛奶味">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+米老头蛋黄煎饼-牛奶味
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="米芭兹薯片夹心饼干 花生 巧克力">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+米芭兹薯片夹心饼干-花生 / 巧克力
+</h3>
+
+<div class="price">
+RM11.00 / RM15.00
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="梅尼耶巴黎蛋糕">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+梅尼耶巴黎蛋糕
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="米芭兹碱水黄油贝果">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+米芭兹碱水黄油贝果
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="米芭兹小脆饼干 黑松露火腿">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+米芭兹小脆饼干 黑松露火腿
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="太平小包 香葱 芝麻 奶盐">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+太平小包 香葱 / 芝麻 / 奶盐
+</h3>
+
+<div class="price">
+RM6.00
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="太平大包 芝麻 海苔 奶盐">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+太平大包 芝麻 / 海苔 / 奶盐
+</h3>
+
+<div class="price">
+RM14.00
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="沙琪玛 香酥鸡蛋">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+沙琪玛 香酥鸡蛋
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="沙琪玛 紫薯 坚果 奶盖 肉松">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+沙琪玛 紫薯 / 坚果 / 奶盖 / 肉松
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="Amazing cracker 酸奶洋葱">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+Amazing cracker-酸奶洋葱
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="Aji 黑松露惊饼">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+Aji 黑松露惊饼
+</h3>
+
+<div class="price">
+价格待更新
+</div>
+</div>
+</article>
+
+
+<article class="product"
+data-cat="面包 / 小蛋糕 / 饼干"
+data-name="好吃点 核桃 腰果 杏仁">
+
+<div class="picon">🥐</div>
+
+<div class="pbody">
+<div class="tag">面包 / 小蛋糕 / 饼干</div>
+
+<h3>
+好吃点 核桃 / 腰果 / 杏仁
+</h3>
+
+<div class="price">
+RM6.00
+</div>
+</div>
+</article>
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="法丽兹 香草柠檬 抹茶">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>法丽兹 香草柠檬 / 抹茶</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="法丽兹黄油椰子夹心蛋卷">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>法丽兹黄油椰子夹心蛋卷</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="徐福记卷心酥 草莓 牛奶">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>徐福记卷心酥 草莓 / 牛奶</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="奥利奥 抹茶 巧克力 原味 葡萄水蜜桃">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>奥利奥 抹茶 / 巧克力 / 原味 / 葡萄水蜜桃</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="奥利奥薄脆 香草">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>奥利奥薄脆 香草</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="奥利奥可可脆卷 香草 抹茶 巧克力">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>奥利奥可可脆卷 香草 / 抹茶 / 巧克力</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="奥利奥迷你">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>奥利奥迷你</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="Mimicat黄油猫酥饼">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>Mimicat黄油猫酥饼</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="mimicat黄油咖啡饼">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>mimicat黄油咖啡饼</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="mimicat夹心薄饼 柠檬">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>mimicat夹心薄饼 柠檬</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="大黄油饼干">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>大黄油饼干</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="黄油鸡蛋曲奇">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>黄油鸡蛋曲奇</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="mimicat黄油青柠椰饼">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>mimicat黄油青柠椰饼</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="嘉士利巧克力薄脆饼">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>嘉士利巧克力薄脆饼</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="miss emma 棒子威化饼干">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>miss emma 棒子威化饼干</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="康师傅3+2苏打夹心 香草巧克力 奶油">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>康师傅 3+2苏打夹心 香草巧克力 / 奶油</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="嘉士利果乐果香 草莓 蓝莓">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>嘉士利果乐果香 草莓 / 蓝莓</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="趣多多香脆曲奇 巧克力">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>趣多多香脆曲奇 巧克力</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="Cardy曲奇挞挞 抹茶 草莓">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>Cardy曲奇挞挞 抹茶 / 草莓</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="C2软心挞 黑巧克力">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>C2软心挞 黑巧克力</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="回头客 山药素饼">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>回头客 山药素饼</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="面包 / 小蛋糕 / 饼干" data-name="君年旺 钙奶山药饼">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">面包 / 小蛋糕 / 饼干</div><h3>君年旺 钙奶山药饼</h3><div class="price">价格待更新</div></div></article>
+
+
+<!-- 花生瓜子 -->
+
+<article class="product" data-cat="花生 / 瓜子" data-name="华味亭 华味亨打手瓜子 多味">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>华味亭 / 华味亨打手瓜子 多味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="老街口 鸭屎香茶 花生">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>老街口 鸭屎香茶花生</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="老街口 山核桃 奶油">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>老街口 山核桃 / 奶油</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="老街口 陈皮瓜子">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>老街口 陈皮瓜子</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="呱呱古法瓜子 陈皮">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>呱呱古法瓜子 陈皮</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="恰恰瓜子 山核桃 焦糖 椰香">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>恰恰瓜子 山核桃 / 焦糖 / 椰香</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="恰恰香瓜子 百煮 奶香">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>恰恰香瓜子 百煮 / 奶香</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="甘源 牛肉味瓜子仁">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>甘源 牛肉味瓜子仁</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="甘源 蟹黄味蚕豆">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>甘源 蟹黄味蚕豆</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="甘源 芥末味青豌豆">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>甘源 芥末味青豌豆</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="百草味 夏威夷果 奶油">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>百草味 夏威夷果 奶油</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="百草味 阳光炭烤腰果">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>百草味 阳光炭烤腰果</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="思宏 手剥烤核桃 奶香">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>思宏 手剥烤核桃 奶香</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="呱呱古法花生 蒜香">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>呱呱古法花生 蒜香</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="呱呱古法花生 陈皮">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>呱呱古法花生 陈皮</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="花生 / 瓜子" data-name="冠华南乳花生仁">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">花生 / 瓜子</div><h3>冠华南乳花生仁</h3><div class="price">价格待更新</div></div></article>
+
+
+<!-- 零食 -->
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="乐事无限90G 牛扒 黄瓜 青柠 番茄 原味">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>乐事无限90G 牛扒 / 黄瓜 / 青柠 / 番茄 / 原味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="乐事无限40G 黄瓜 番茄 原味 烤肉">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>乐事无限40G 黄瓜 / 番茄 / 原味 / 烤肉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="乐事70G 番茄 黄瓜 原味 烧烤 海苔 青柠">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>乐事70G 番茄 / 黄瓜 / 原味 / 烧烤 / 海苔 / 青柠</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="乐事大波浪">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>乐事大波浪</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="可比克105G 原味 番茄">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>可比克105G 原味 / 番茄</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="喀吱脆 咯吱脆 麻辣 葱香 烧烤 泡菜 原味">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>喀吱脆 / 咯吱脆 麻辣 / 葱香 / 烧烤 / 泡菜 / 原味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="好丽友88G 牛排 蜂蜜 番茄 原味">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>好丽友88G 牛排 / 蜂蜜 / 番茄 / 原味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="御之味鸡蛋仔 原味 咸蛋">
+<div class="picon">🍘</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>御之味鸡蛋仔 原味 / 咸蛋</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="清二娃土豆片 胡椒味">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>清二娃土豆片 胡椒味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="盼盼香蕉味酥">
+<div class="picon">🍌</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>盼盼香蕉味酥</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="爱尚咪咪 虾味">
+<div class="picon">🦐</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>爱尚咪咪 虾味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="呀土豆 番茄 蜂蜜">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>呀土豆 番茄 / 蜂蜜</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="栗一烧 烧烤味">
+<div class="picon">🌰</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>栗一烧 烧烤味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上好佳 日式鱼果">
+<div class="picon">🐟</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上好佳 日式鱼果</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上好佳田园薯片">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上好佳田园薯片</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="好丽友好有趣 烧烤 牛排">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>好丽友好有趣 烧烤 / 牛排</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="盼盼 麦香鸡块 香辣 牛排 墨西哥鸡 番茄">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>盼盼 麦香鸡块 / 香辣 / 牛排 / 墨西哥鸡 / 番茄</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="琅琅脆 番茄">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>琅琅脆 番茄</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="爱尚咪咪 蟹味">
+<div class="picon">🦀</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>爱尚咪咪 蟹味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上好佳 洋葱圈">
+<div class="picon">🧅</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上好佳 洋葱圈</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上好佳 虾条">
+<div class="picon">🦐</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上好佳 虾条</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上好佳 虾片">
+<div class="picon">🦐</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上好佳 虾片</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="山药薯片 奶龙">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>山药薯片 奶龙</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="盼盼家庭号 番茄 洋葱">
+<div class="picon">🥔</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>盼盼家庭号 番茄 / 洋葱</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="盼盼分享装 金虾条">
+<div class="picon">🦐</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>盼盼分享装 金虾条</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="贤哥鸭腿 香辣 盐焗">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>贤哥鸭腿 香辣 / 盐焗</h3><div class="price">RM7.00</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="贤哥素牛肉">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>贤哥素牛肉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="贤哥素鸡筋">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>贤哥素鸡筋</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="贤哥素鱼片">
+<div class="picon">🐟</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>贤哥素鱼片</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="贤哥面筋 鹅掌 香辣蟹">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>贤哥面筋 鹅掌 / 香辣蟹</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="无穷盐焗鸡腿">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>无穷盐焗鸡腿</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="无穷盐焗鸡翅">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>无穷盐焗鸡翅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="无穷香辣鸡翅">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>无穷香辣鸡翅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="无穷烤鸡翅根">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>无穷烤鸡翅根</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="无穷酱鸭翅根">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>无穷酱鸭翅根</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="合记林珍香 带鱼">
+<div class="picon">🐟</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>合记林珍香 带鱼</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="合记林珍香 巴浪鱼">
+<div class="picon">🐟</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>合记林珍香 巴浪鱼</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="合记林珍香 黑猪金钱肉">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>合记林珍香 黑猪金钱肉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上上好 小凉棒">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上上好 小凉棒</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上上好 小凉丝">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上上好 小凉丝</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上上好 嫩牛味">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上上好 嫩牛味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上上好 素大刀肉">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上上好 素大刀肉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上上好 素板筋">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上上好 素板筋</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="无骨鸡爪 泡椒 柠檬">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>无骨鸡爪 泡椒 / 柠檬</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="铺乐美 松茸 黑松露">
+<div class="picon">🍄</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>铺乐美 松茸 / 黑松露</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="原切牛肉 麻辣 烧烤">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>原切牛肉 麻辣 / 烧烤</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="食神兽风干肉 五香 香辣">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>食神兽风干肉 五香 / 香辣</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="羊小宇大辣片">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>羊小宇大辣片</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="源氏大辣片">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>源氏大辣片</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="麻辣王子 微麻微辣">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>麻辣王子 微麻微辣</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="洞庭修礼板鸭">
+<div class="picon">🦆</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>洞庭修礼板鸭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="商大娘原浆香干">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>商大娘原浆香干</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="余同乐大拌串 黑鸭 香辣">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>余同乐大拌串 黑鸭 / 香辣</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="余同乐口水鸡素">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>余同乐口水鸡素</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="佳龙素牛筋">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>佳龙素牛筋</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上上好鸭脖 香辣 黑鸭">
+<div class="picon">🦆</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上上好鸭脖 香辣 / 黑鸭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="状鱼菲特鸡胸肉 黑椒 奥尔良">
+<div class="picon">🍗</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>状鱼菲特鸡胸肉 黑椒 / 奥尔良</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="状鱼菲特牛肉">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>状鱼菲特牛肉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="鸡子飞了泡鸭翅根">
+<div class="picon">🦆</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>鸡子飞了泡鸭翅根</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="老醋蚕豆 原味">
+<div class="picon">🥜</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>老醋蚕豆 原味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="印味兰花串 香辣">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>印味兰花串 香辣</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="虎皮豆干 香辣味">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>虎皮豆干 香辣味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="虎皮兰花干 香辣">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>虎皮兰花干 香辣</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="渝乐滋麻辣肉干">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>渝乐滋麻辣肉干</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="溜溜梅 青梅 雪梅 西梅">
+<div class="picon">🍑</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>溜溜梅 青梅 / 雪梅 / 西梅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="溜溜梅 陈皮梅条">
+<div class="picon">🍑</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>溜溜梅 陈皮梅条</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="流行e派 红薯干">
+<div class="picon">🍠</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>流行e派 红薯干</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="卜珂零点 蔓越莓雪花奶酥">
+<div class="picon">🍪</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>卜珂零点 蔓越莓雪花奶酥</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上珍果 陈皮梅">
+<div class="picon">🍑</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上珍果 陈皮梅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上珍果 雪梅">
+<div class="picon">🍑</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上珍果 雪梅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上珍果 豆西梅">
+<div class="picon">🍑</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上珍果 豆西梅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="果丹皮">
+<div class="picon">🍓</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>果丹皮</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="华味亨 话梅">
+<div class="picon">🍑</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>华味亨 话梅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="冰糖杨梅">
+<div class="picon">🍑</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>冰糖杨梅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="佳宝无花果">
+<div class="picon">🫐</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>佳宝无花果</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="金龟山楂条">
+<div class="picon">🍓</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>金龟山楂条</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="星球杯">
+<div class="picon">🍫</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>星球杯</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="食滋源熟粉糕点 巧克力 抹茶">
+<div class="picon">🍵</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>食滋源熟粉糕点 巧克力 / 抹茶</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="食滋源流星麻薯 草莓 黑芝麻 抹茶">
+<div class="picon">🍡</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>食滋源流星麻薯 草莓 / 黑芝麻 / 抹茶</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="卫龙魔芋 爽酸辣 麻辣 香辣 麻酱">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>卫龙魔芋 爽酸辣 / 麻辣 / 香辣 / 麻酱</h3><div class="price">RM1.50</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="卫龙海带">
+<div class="picon">🌿</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>卫龙海带</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="卫龙牛肝菌">
+<div class="picon">🍄</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>卫龙牛肝菌</h3><div class="price">RM2.00</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="无穷鸡蛋 盐焗 香辣">
+<div class="picon">🥚</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>无穷鸡蛋 盐焗 / 香辣</h3><div class="price">RM2.50</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="朝天子 香辣脆豆">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>朝天子 香辣脆豆</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="朝天子 山椒脆豆">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>朝天子 山椒脆豆</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="缺牙齿">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>缺牙齿</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="力诚手撕蟹柳">
+<div class="picon">🦀</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>力诚手撕蟹柳</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="霸王丝">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>霸王丝</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="好心肠 烧烤 奥尔良 香辣">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>好心肠 烧烤 / 奥尔良 / 香辣</h3><div class="price">RM1.00</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="湘满天香辣毛豆">
+<div class="picon">🫛</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>湘满天香辣毛豆</h3><div class="price">RM1.50</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="上上好牙签肉">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>上上好牙签肉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="加钙金锣王火腿肠">
+<div class="picon">🌭</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>加钙金锣王火腿肠</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="双汇王中王">
+<div class="picon">🌭</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>双汇王中王</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="双汇润口香甜王">
+<div class="picon">🌭</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>双汇润口香甜王</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="双汇泡面搭档">
+<div class="picon">🌭</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>双汇泡面搭档</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="双汇加钙王 南方风味">
+<div class="picon">🌭</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>双汇加钙王 南方风味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="双汇香辣香脆肠">
+<div class="picon">🌭</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>双汇香辣香脆肠</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="双汇玉米热狗肠">
+<div class="picon">🌭</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>双汇玉米热狗肠</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="合记林珍香肉铺">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>合记林珍香肉铺</h3><div class="price">RM1.50</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="合记林珍香金钱肉 原味">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>合记林珍香金钱肉 原味</h3><div class="price">RM1.50</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="合记林珍香金钱肉 烧烤">
+<div class="picon">🥩</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>合记林珍香金钱肉 烧烤</h3><div class="price">RM1.50</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="卫龙亲嘴烧">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>卫龙亲嘴烧</h3><div class="price">RM1.50</div></div></article>
+
+<article class="product" data-cat="零食 / 薯片 / 辣条" data-name="阿尔卑斯棒棒糖">
+<div class="picon">🍭</div><div class="pbody"><div class="tag">零食 / 薯片 / 辣条</div><h3>阿尔卑斯棒棒糖</h3><div class="price">价格待更新</div></div></article>
+<!-- 泡面 / 米线 / 螺蛳粉 -->
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="康师傅 酸辣 香辣 泡椒 红烧 藤椒 鲜虾">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>康师傅 酸辣 / 香辣 / 泡椒 / 红烧 / 藤椒 / 鲜虾</h3><div class="price">RM6.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="康师傅 鲜虾 豉椒 肥牛 香菇 红烧 包装">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>康师傅 鲜虾 / 豉椒 / 肥牛 / 香菇 / 红烧</h3><div class="price">RM3.50</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="白象香辣小龙虾">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>白象香辣小龙虾</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="白象海鲜浓汤 老母鸡 包装">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>白象海鲜浓汤 / 老母鸡</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="莫小仙 肥汁米线">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>莫小仙 肥汁米线</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="今麦郎 红烧牛肉">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>今麦郎 红烧牛肉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="统一 酸菜 泡椒">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>统一 酸菜 / 泡椒</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="康师傅 1倍半红烧">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>康师傅 1倍半红烧</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="今麦郎 安徽板面 讽香">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>今麦郎 安徽板面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="满潮大餐 麻辣牛肉面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>满潮大餐 麻辣牛肉面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="康师傅 香辣牛肉拌面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>康师傅 香辣牛肉拌面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="康师傅 红烧牛肉拌面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>康师傅 红烧牛肉拌面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="康师傅 鸡蛋牛肉面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>康师傅 鸡蛋牛肉面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="康师傅 香辣牛肉面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>康师傅 香辣牛肉面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="圣拉面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>圣拉面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="炒面王 香炸酱">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>炒面王 香炸酱</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="农心辣白菜拉面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>农心辣白菜拉面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="汤达人 酸辣豚骨面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>汤达人 酸辣豚骨面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="茄皇 生肉面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>茄皇 生肉面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="白象辣牛肉汤面 桶装">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>白象辣牛肉汤面 桶装</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="白象招牌猪骨汤面 桶装">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>白象招牌猪骨汤面 桶装</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="杨掌柜 面粉菜蛋 肥牛 酸汤">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>杨掌柜 面粉菜蛋 肥牛 / 酸汤</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="陈村功夫河粉 牛腩 排骨 桶装">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>陈村功夫河粉 牛腩 / 排骨</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="公仔碗仔面 排骨 桶装">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>公仔碗仔面 排骨 桶装</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="食人族肉酱米线">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>食人族肉酱米线</h3><div class="price">RM8.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="食人族酸辣粉">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>食人族酸辣粉</h3><div class="price">RM8.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="食人族花甲粉">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>食人族花甲粉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="阿宽红油面皮">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>阿宽红油面皮</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="今麦郎刀削宽面 红烧">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>今麦郎刀削宽面 红烧</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="莫小仙酸辣粉">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>莫小仙酸辣粉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="陈村 嘿里啪啦麻酱">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>陈村 嘿里啪啦麻酱</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="海底捞自煮火锅 番茄 麻辣嫩牛 脆爽牛肚">
+<div class="picon">🍲</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>海底捞自煮火锅 番茄 / 麻辣嫩牛 / 脆爽牛肚</h3><div class="price">RM23.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="海底捞香辣肉丸">
+<div class="picon">🍲</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>海底捞香辣肉丸</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="莫小仙煲仔饭 香肠 腊肉">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>莫小仙煲仔饭 香肠 / 腊肉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="海底捞菌菇牛肉饭">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>海底捞菌菇牛肉饭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="海底捞烧椒牛肉饭">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>海底捞烧椒牛肉饭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="自嗨锅回锅肉煲仔饭">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>自嗨锅回锅肉煲仔饭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="自嗨锅卤肉煲仔饭">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>自嗨锅卤肉煲仔饭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="自嗨锅川味腊肠煲仔饭">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>自嗨锅川味腊肠煲仔饭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="海底捞红烧牛肉饭">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>海底捞红烧牛肉饭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="莫小仙笋尖牛肉饭">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>莫小仙笋尖牛肉饭</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="陈村和毛黄拌面">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>陈村和毛黄拌面</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="满小饱 黑鸭拌面 肥汁土豆 贵州酸汤 云南风味 松茸鸡汤 酸菜火锅">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>满小饱 黑鸭拌面 / 肥汁土豆 / 贵州酸汤 / 云南风味 / 松茸鸡汤 / 酸菜火锅</h3><div class="price">RM13.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="好欢螺 柳州螺蛳粉 400g">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>好欢螺柳州螺蛳粉 400g</h3><div class="price">RM15.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="好欢螺 柳州螺蛳粉 300g">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>好欢螺柳州螺蛳粉 300g</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="好欢螺 加辣版">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>好欢螺加辣版</h3><div class="price">RM15.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="臭宝螺蛳粉">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>臭宝螺蛳粉</h3><div class="price">RM10.90</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="李子柒螺蛳粉">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>李子柒螺蛳粉</h3><div class="price">RM14.00</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="好欢螺螺蛳粉 番茄味">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>好欢螺螺蛳粉 番茄味</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="拉面说 金汤肥牛 豚骨叉烧">
+<div class="picon">🍜</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>拉面说 金汤肥牛 / 豚骨叉烧</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="莫小仙老成都火锅">
+<div class="picon">🍲</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>莫小仙老成都火锅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="莫小仙香辣素食">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>莫小仙香辣素食</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="莫小仙重庆麻辣">
+<div class="picon">🌶️</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>莫小仙重庆麻辣</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="泡面 / 米线 / 螺蛳粉" data-name="合正然煲仔饭 腊肠 卤肉">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">泡面 / 米线 / 螺蛳粉</div><h3>合正然煲仔饭 腊肠 / 卤肉</h3><div class="price">价格待更新</div></div></article>
+
+
+<!-- 纸巾 / 湿巾 / 洗面巾 -->
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="维达 超韧10包">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>维达 超韧10包</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="维达 棉韧6包">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>维达 棉韧6包</h3><div class="price">RM17.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="维达 便捷手帕12包">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>维达 便捷手帕12包</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="维达 纸手帕">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>维达 纸手帕</h3><div class="price">RM1.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="维达 纸手帕24包">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>维达 纸手帕24包</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="洁柔手帕纸">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>洁柔手帕纸</h3><div class="price">RM1.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="洁柔手帕纸30包">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>洁柔手帕纸30包</h3><div class="price">RM11.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="维达杀菌香湿巾10片">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>维达杀菌香湿巾10片</h3><div class="price">RM6.50</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="洁柔清爽洁肤湿巾10片">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>洁柔清爽洁肤湿巾10片</h3><div class="price">RM6.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="洁柔净颜洗面巾70抽">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>洁柔净颜洗面巾70抽</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="相印厨房纸巾2卷">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>相印厨房纸巾2卷</h3><div class="price">RM13.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="相印卫生湿巾80抽">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>相印卫生湿巾80抽</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="相印10卷纸">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>相印10卷纸</h3><div class="price">RM15.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="相印棉柔洁面巾80抽">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>相印棉柔洁面巾80抽</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="洁丽雅一次性洗面巾6包">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>洁丽雅一次性洗面巾6包</h3><div class="price">RM40.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="洁丽雅一次性洗面巾">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>洁丽雅一次性洗面巾</h3><div class="price">RM7.50</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="洁柔 face 黑软">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>洁柔 FACE 黑软</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="清风抽纸3包">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>清风抽纸3包</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="纸巾 / 湿巾 / 洗面巾" data-name="清风抽纸">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">纸巾 / 湿巾 / 洗面巾</div><h3>清风抽纸</h3><div class="price">RM3.50</div></div></article>
+
+
+<!-- 日常用品 -->
+
+<article class="product" data-cat="日常用品" data-name="施华蔻多效修复润滑乳">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>施华蔻多效修复润滑乳</h3><div class="price">RM49.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="施华蔻羊绒脂滋养洗发露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>施华蔻羊绒脂滋养洗发露</h3><div class="price">RM49.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="施华蔻金顿盛润精油润发乳 洗发露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>施华蔻金顿盛润精油润发乳 / 洗发露</h3><div class="price">RM49.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="飘柔润养柔顺护发素">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>飘柔润养柔顺护发素</h3><div class="price">RM30.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="飘柔3效合1多效滋润修护洗发露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>飘柔3效合1多效滋润修护洗发露</h3><div class="price">RM29.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="飘柔3效合1垂顺亮泽洗发露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>飘柔3效合1垂顺亮泽洗发露</h3><div class="price">RM38.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="韩方五谷颈域去屑洗发水">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>韩方五谷颈域去屑洗发水</h3><div class="price">RM42.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="韩方五谷颈域控油洗发水">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>韩方五谷颈域控油洗发水</h3><div class="price">RM42.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="阿道夫焗油护发素">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>阿道夫焗油护发素</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="霸王乌固发洗发水">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>霸王乌固发洗发水</h3><div class="price">RM38.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蜜花蚕丝蛋白营养护发素">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>蜜花蚕丝蛋白营养护发素</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蜜花护发素">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>蜜花护发素</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="修正男士抑菌洗液">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>修正男士抑菌洗液</h3><div class="price">RM30.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="舒肤佳 薰衣草 金银花">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>舒肤佳 薰衣草 / 金银花</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="lux香皂幽莲魅肤">
+<div class="picon">🧼</div><div class="pbody"><div class="tag">日常用品</div><h3>LUX香皂 幽莲魅肤</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="舒肤佳香皂 菊花 芦荟 柠檬 纯白">
+<div class="picon">🧼</div><div class="pbody"><div class="tag">日常用品</div><h3>舒肤佳香皂 菊花 / 芦荟 / 柠檬 / 纯白</h3><div class="price">RM5.50</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="可悠然美肌沐浴露 欣怡 幽香 花漾之恋 恬静清香 碧野悠悠">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>可悠然美肌沐浴露 欣怡 / 幽香 / 花漾之恋 / 恬静清香 / 碧野悠悠</h3><div class="price">RM33.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="潘婷乳液修复精华素200ml">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>潘婷乳液修复精华素 200ml</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="潘婷丝质顺滑精华素200ml">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>潘婷丝质顺滑精华素 200ml</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="潘婷3分钟奇迹奢护精华霜">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>潘婷3分钟奇迹奢护精华霜</h3><div class="price">RM25.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="沙宣修护水养洗发水">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>沙宣修护水养洗发水</h3><div class="price">RM18.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="沙宣水润去屑洗发水">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>沙宣水润去屑洗发水</h3><div class="price">RM18.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="Clear清扬男士控油型">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>Clear清扬男士控油型</h3><div class="price">RM15.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="潘婷乳液修护去屑洗发露750g500ml">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>潘婷乳液修护去屑洗发露 750g / 500ml</h3><div class="price">RM32.00 / RM22.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="潘婷丝质顺滑洗发露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>潘婷丝质顺滑洗发露</h3><div class="price">RM32.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="lux茶树精油小苍兰香沐浴露550g">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>LUX茶树精油小苍兰香沐浴露 550g</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="寇斯汀玫瑰瓣汁沐浴露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>寇斯汀玫瑰瓣汁沐浴露</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="寇斯汀茉莉花花瓣沐浴露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>寇斯汀茉莉花花瓣沐浴露</h3><div class="price">RM9.90</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="多芬栀花馥香浓密沐浴露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>多芬栀花馥香浓密沐浴露</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="多芬深层营润滋养美沐浴露1000g480g">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>多芬深层营润滋养美沐浴露 1000g / 480g</h3><div class="price">RM24.00 / RM18.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="雅漾舒泉调理喷雾">
+<div class="picon">💧</div><div class="pbody"><div class="tag">日常用品</div><h3>雅漾舒泉调理喷雾</h3><div class="price">RM23.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="妮维雅止汗露">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>妮维雅止汗露</h3><div class="price">RM25.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="旁氏水润柔嫩洁面乳">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>旁氏水润柔嫩洁面乳</h3><div class="price">RM19.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="妮维雅控油劲爽洁面乳">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>妮维雅控油劲爽洁面乳</h3><div class="price">RM19.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="妮维雅收缩毛孔洁面乳">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>妮维雅收缩毛孔洁面乳</h3><div class="price">RM19.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="妮维雅深层劲爽洗面奶">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>妮维雅深层劲爽洗面奶</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="欧莱雅碳爽控油">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>欧莱雅碳爽控油</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="欧莱雅控油清痘洁面乳">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>欧莱雅控油清痘洁面乳</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="曼秀雷敦黑头火山泥">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>曼秀雷敦黑头火山泥</h3><div class="price">RM45.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="曼秀雷敦冰爽活炭">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>曼秀雷敦冰爽活炭</h3><div class="price">RM48.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="曼秀雷敦控油抗痘">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>曼秀雷敦控油抗痘</h3><div class="price">RM48.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="曼秀雷敦保湿活力泡沫">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>曼秀雷敦保湿活力泡沫</h3><div class="price">RM50.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="汰渍净白去渍1.15千克">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>汰渍净白去渍 1.15kg</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="立白大师香气">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>立白大师香气</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="洗白除菌去渍">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>洗白除菌去渍</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮深层洁净护衣护色1kg3kg">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮深层洁净护衣护色 1kg / 3kg</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮深层洁净亮白增艳500g2kg">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮深层洁净亮白增艳 500g / 2kg</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮漂白水600g">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮漂白水 600g</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="超能柔顺舒适洗衣凝珠">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>超能柔顺舒适洗衣凝珠</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮洗手液255ml">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮洗手液 255ml</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮抑菌洗手液500g">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮抑菌洗手液 500g</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮清爽洗手液">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮清爽洗手液</h3><div class="price">RM15.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮84消毒水">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮84消毒水</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="澳佳葆医用消毒水">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>澳佳葆医用消毒水</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="滴露消毒水750ml">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>滴露消毒水 750ml</h3><div class="price">RM48.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="超威强力洁厕精">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>超威强力洁厕精</h3><div class="price">RM8.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="立白新金桔洗洁精">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>立白新金桔洗洁精</h3><div class="price">RM6.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="立白清新柠檬洗洁精">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>立白清新柠檬洗洁精</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮地板清洁剂">
+<div class="picon">🧹</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮地板清洁剂</h3><div class="price">RM22.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="卫诺香氛洁厕精">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>卫诺香氛洁厕精</h3><div class="price">RM30.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="超威强力洗洁剂">
+<div class="picon">🧴</div><div class="pbody"><div class="tag">日常用品</div><h3>超威强力洗洁剂</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="妍乐花香爆炸盐">
+<div class="picon">🧂</div><div class="pbody"><div class="tag">日常用品</div><h3>妍乐花香爆炸盐</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="妍乐爆炸盐 白衣彩衣通用">
+<div class="picon">🧂</div><div class="pbody"><div class="tag">日常用品</div><h3>妍乐爆炸盐 白衣 / 彩衣通用</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="奥妙超效洗衣粉">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>奥妙超效洗衣粉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="雕牌透明皂">
+<div class="picon">🧼</div><div class="pbody"><div class="tag">日常用品</div><h3>雕牌透明皂</h3><div class="price">RM6.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="雕牌增白皂">
+<div class="picon">🧼</div><div class="pbody"><div class="tag">日常用品</div><h3>雕牌增白皂</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="超能植沐悦洗衣液 抗串色抗发黄">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>超能植沐悦洗衣液 抗串色抗发黄</h3><div class="price">RM3.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="立白洗衣凝珠52颗">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>立白洗衣凝珠 52颗</h3><div class="price">RM18.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮至尊洗衣液">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮至尊洗衣液</h3><div class="price">RM55.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮茉莉樱花内衣专用">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮茉莉樱花内衣专用</h3><div class="price">RM20.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮茉莉樱花旅行版">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮茉莉樱花旅行版</h3><div class="price">RM8.00</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮手洗专用">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮手洗专用</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="日常用品" data-name="蓝月亮双用型">
+<div class="picon">🧺</div><div class="pbody"><div class="tag">日常用品</div><h3>蓝月亮双用型</h3><div class="price">价格待更新</div></div></article>
+
+
+<!-- 家具 / 厨房用品 -->
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭衣架8支">
+<div class="picon">🪝</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭衣架 8支</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="佳一极简风小刷">
+<div class="picon">🧹</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>佳一极简风小刷</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="佳一多用刷">
+<div class="picon">🧹</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>佳一多用刷</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="蚊子拍">
+<div class="picon">🦟</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>蚊子拍</h3><div class="price">RM2.50</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="榴莲扇子">
+<div class="picon">🪭</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>榴莲扇子</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="幸运扇">
+<div class="picon">🪭</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>幸运扇</h3><div class="price">RM6.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭洗浴球">
+<div class="picon">🛁</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭洗浴球</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="英吉利超威2">
+<div class="picon">🧹</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>英吉利超威2</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="吉列威锋">
+<div class="picon">🪒</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>吉列威锋</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="白惜漱口水 茉莉龙井 柚见青提 柠香凤梨">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>白惜漱口水 茉莉龙井 / 柚见青提 / 柠香凤梨</h3><div class="price">RM20.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="insdoctor医用口腔">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>insdoctor医用口腔</h3><div class="price">RM28.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="李施德林漱口水 樱花蜜桃 冰蓝零度">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>李施德林漱口水 樱花蜜桃 / 冰蓝零度</h3><div class="price">RM16.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="701珂蒂丝牙刷两支">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>701珂蒂丝牙刷 两支</h3><div class="price">RM6.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="703珂蒂丝软牙刷两支">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>703珂蒂丝软牙刷 两支</h3><div class="price">RM6.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="603珂蒂丝舒爽牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>603珂蒂丝舒爽牙刷</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="557珂蒂丝净白防滑软毛">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>557珂蒂丝净白防滑软毛</h3><div class="price">RM4.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="558珂蒂丝优护亮白软毛">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>558珂蒂丝优护亮白软毛</h3><div class="price">RM4.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="皓齿良品牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>皓齿良品牙刷</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="青蛙软毛牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>青蛙软毛牙刷</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="972飘雪软毛牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>972飘雪软毛牙刷</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="506珂蒂丝螺旋中毛牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>506珂蒂丝螺旋中毛牙刷</h3><div class="price">RM4.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="飘雪儿童牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>飘雪儿童牙刷</h3><div class="price">RM4.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="827飘雪软毛牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>827飘雪软毛牙刷</h3><div class="price">RM4.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="白惜小头牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>白惜小头牙刷</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="云南白药薄荷清新牙膏">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>云南白药薄荷清新牙膏</h3><div class="price">RM19.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="云南白药留兰香型牙膏">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>云南白药留兰香型牙膏</h3><div class="price">RM19.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="云南白药金口健">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>云南白药金口健</h3><div class="price">RM18.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="黑人超白牙膏">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>黑人超白牙膏</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="黑人茶倍健牙膏">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>黑人茶倍健牙膏</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="一次性牙刷">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>一次性牙刷</h3><div class="price">RM2.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="一次性牙刷牙膏">
+<div class="picon">🪥</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>一次性牙刷 + 牙膏</h3><div class="price">RM2.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="白惜漱口水6口味">
+<div class="picon">🦷</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>白惜漱口水 6口味</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭开瓶器">
+<div class="picon">🍾</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭开瓶器</h3><div class="price">RM6.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭烧烤夹">
+<div class="picon">🥢</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭烧烤夹</h3><div class="price">RM8.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭磨刀石">
+<div class="picon">🔪</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭磨刀石</h3><div class="price">RM8.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭削皮刀">
+<div class="picon">🥕</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭削皮刀</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭黑珍珠汤勺">
+<div class="picon">🥄</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭黑珍珠汤勺</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭小汤勺">
+<div class="picon">🥄</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭小汤勺</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭分漏7公分">
+<div class="picon">🥄</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭分漏 7公分</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭厨房炒铲">
+<div class="picon">🥄</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭厨房炒铲</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭厨房剪刀">
+<div class="picon">✂️</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭厨房剪刀</h3><div class="price">RM15.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭家用剪刀">
+<div class="picon">✂️</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭家用剪刀</h3><div class="price">RM10.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭锋刃三件套">
+<div class="picon">🍴</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭锋刃三件套</h3><div class="price">RM28.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭勺子">
+<div class="picon">🥄</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭勺子</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭平头勺子">
+<div class="picon">🥄</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭平头勺子</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭叉子">
+<div class="picon">🍴</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭叉子</h3><div class="price">RM5.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭极铁不锈炒锅">
+<div class="picon">🍳</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭极铁不锈炒锅</h3><div class="price">RM56.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭砧板">
+<div class="picon">🪵</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭砧板</h3><div class="price">RM79.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭花梨木漏网">
+<div class="picon">🥄</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭花梨木漏网</h3><div class="price">RM13.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭五福厨具套装">
+<div class="picon">🍳</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭五福厨具套装</h3><div class="price">RM32.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭调料盒">
+<div class="picon">🧂</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭调料盒</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭保鲜膜">
+<div class="picon">🧻</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭保鲜膜</h3><div class="price">RM12.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭不锈钢电热水壶">
+<div class="picon">🫖</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭不锈钢电热水壶</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭福利多用奶锅">
+<div class="picon">🍲</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭福利多用奶锅</h3><div class="price">RM48.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭福利多用汤锅">
+<div class="picon">🍲</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭福利多用汤锅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭智能饭煲">
+<div class="picon">🍚</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭智能饭煲</h3><div class="price">RM178.00</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭多用电磁炉">
+<div class="picon">🍳</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭多用电磁炉</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭德系316双面花炒锅">
+<div class="picon">🍳</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭德系316双面花炒锅</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭双层防烫电热水壶">
+<div class="picon">🫖</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭双层防烫电热水壶</h3><div class="price">价格待更新</div></div></article>
+
+<article class="product" data-cat="家具 / 厨房用品" data-name="小黄鸭一次性筷子12 25双">
+<div class="picon">🥢</div><div class="pbody"><div class="tag">家具 / 厨房用品</div><h3>小黄鸭一次性筷子 12 / 25双</h3><div class="price">RM6.00 / RM8.00</div></div></article>
+
+
 </div>
 
-<div
-id="productGrid"
-class="product-grid"
->
+<div class="empty" id="empty">
+没有找到相关商品。<br>
+请尝试其他关键词。
 </div>
 
-<div
-id="empty"
-style="display:none;text-align:center;padding:40px;color:#777;"
->
-没有找到相关商品
-</div>
 
-<section
-class="store"
-id="store"
->
+<section class="store" id="store">
 
 <div>
+<div class="eyebrow">VISIT US</div>
 
-<h2>来万家逛逛</h2>
+<h2>来万家，<br>找到熟悉的中国味。</h2>
 
 <p>
-位于 Kuala Lumpur Bukit Bintang 一带，
-营业至凌晨 2 点。
+无论是想找家乡味的零食，
+还是日常生活用品，
+欢迎来到万家中国超市。
 </p>
 
 <a
-class="hero-btn hero-red"
+class="btn red"
 target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=201%20Jalan%20Imbi%2C%20Bukit%20Bintang%2C%2055100%20Kuala%20Lumpur"
->
+href="https://www.google.com/maps/search/?api=1&query=201%20Jalan%20Imbi%2C%20Bukit%20Bintang%2C%2055100%20Kuala%20Lumpur">
 打开 Google Maps
 </a>
-
 </div>
 
 <div class="store-info">
 
 <div>
-
 <span>地址</span>
-
 <strong>
-201, Jalan Imbi, Bukit Bintang,<br>
-55100 Kuala Lumpur,<br>
+201, Jalan Imbi, Bukit Bintang,
+55100 Kuala Lumpur,
 Wilayah Persekutuan Kuala Lumpur
 </strong>
-
 </div>
 
 <div>
-
 <span>营业时间</span>
-
 <strong>
-每天 10:00 AM — 2:00 AM
+每日 10:00 AM — 2:00 AM
 </strong>
+</div>
 
+<div>
+<span>店铺</span>
+<strong>
+万家中国超市
+</strong>
 </div>
 
 </div>
@@ -609,3998 +2097,83 @@ Wilayah Persekutuan Kuala Lumpur
 </main>
 
 <footer>
-
-<div class="footer-inner">
-
-<div>
-© 2026 万家中国超市
+<div class="foot">
+<div>© 2026 万家中国超市</div>
+<div>中国味，就在万家。</div>
 </div>
-
-<div>
-中国味 · 好生活 · 万家
-</div>
-
-</div>
-
 </footer>
 
+
 <script>
 
-window.onerror = function(message, source, lineno, colno) {
-  alert("JS错误：" + message + "\n第 " + lineno + " 行");
-};
+const search=document.getElementById("search");
+const products=[...document.querySelectorAll(".product")];
+const filters=[...document.querySelectorAll(".filter")];
+const count=document.getElementById("count");
+const empty=document.getElementById("empty");
+
+let activeCategory="all";
+
+function filterProducts(){
+
+const keyword=search.value.trim().toLowerCase();
+
+let visible=0;
+
+products.forEach(product=>{
+
+const category=product.dataset.cat;
+const name=product.dataset.name.toLowerCase();
+
+const categoryOK=
+activeCategory==="all" ||
+category===activeCategory;
+
+const searchOK=
+!keyword ||
+name.includes(keyword);
+
+if(categoryOK && searchOK){
+
+product.style.display="block";
+visible++;
+
+}else{
+
+product.style.display="none";
+
+}
+
+});
+
+count.textContent=`显示 ${visible} 件商品`;
+
+empty.style.display=
+visible===0 ? "block" : "none";
+
+}
+
+search.addEventListener("input",filterProducts);
+
+filters.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+filters.forEach(b=>b.classList.remove("active"));
+
+button.classList.add("active");
+
+activeCategory=button.dataset.cat;
+
+filterProducts();
+
+});
+
+});
+
+filterProducts();
+
 </script>
-<script>
-const PRODUCTS = [
-{
-name:"达利园派 巧克力 / 草莓 / 蛋黄",
-category:"面包 / 小蛋糕 / 饼干",
-price:9.00,
-icon:"🥐"
-},
 
-{
-name:"铜锣烧 香芋",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"好丽友-Q蒂莫卡巧克力",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"好丽友派-抹茶味",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"虎皮小蛋糕",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"早餐饼干-原味 / 牛奶",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"向日葵饼干-乳酪 / 柠檬",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"奥利奥 巧克力味",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"奥利奥 原味",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"奥利奥 草莓味",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"奥利奥 抹茶味",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"花生",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"瓜子",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"洽洽 香瓜子",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"洽洽 原味瓜子",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"兰花豆",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"辣条",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 辣条",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"薯片",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🥔"
-},
-
-{
-name:"乐事 原味薯片",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🥔"
-},{
-name:"山楂树下",
-category:"饮料",
-price:11.00,
-icon:"🥤"
-},
-
-{
-name:"三诺 葡萄糖补水液",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"if 椰子水 1L",
-category:"饮料",
-price:16.00,
-icon:"🥤"
-},
-
-{
-name:"if 椰子水 350ml",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"椰树椰子汁",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"百合雪梨水",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"悦小开 陈皮山楂水",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"阿萨姆 原味",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"阿萨姆 煎茶奶绿",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"悦小开 红枣黄芪水",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"焕神能量饮料",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"奈雪 羽衣甘蓝茉莉花茶",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"奈雪 多维橙C凤凰单丛茶",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"奈雪果茶 青提香乌龙茶",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"奈雪果茶 蜜桃乌龙茶",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"王老吉 310ml",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"优酸乳 AD钙",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"优酸乳 原味",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"优酸乳 草莓",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"旺仔牛奶 245ml",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-{
-name:"红牛",
-category:"饮料",
-price:6.50,
-icon:"🥤"
-},
-
-{
-name:"冰峰",
-category:"饮料",
-price:3.50,
-icon:"🥤"
-},
-
-{
-name:"大窑480ml 荔爱",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"大窑480ml 橙诺",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"大窑500ml 橙诺",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"大窑480ml 嘉宾",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"大窑500ml 嘉宾",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"Farm Fresh 1L 巧克力味",
-category:"饮料",
-price:12.00,
-icon:"🥤"
-},
-
-{
-name:"Farm Fresh 1L 鲜奶",
-category:"饮料",
-price:12.00,
-icon:"🥤"
-},
-
-{
-name:"Farm Fresh 200ml 拿铁",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"Farm Fresh 200ml 鲜奶",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"每日C 500ml 水蜜桃",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"哇哈哈AD钙 450ml",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"哇哈哈 AD钙 220g",
-category:"饮料",
-price:2.50,
-icon:"🥤"
-},
-
-{
-name:"维维豆奶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"维他 柠檬茶250ml",
-category:"饮料",
-price:3.50,
-icon:"🥤"
-},
-
-{
-name:"维他 柠檬茶 310ml",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"瑞幸 经典美式",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"瑞幸 柚C美式",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"瑞幸 生椰拿铁",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-{
-name:"28+ 300g 黄桃酸奶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"28+ 300g 草莓酸奶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"统一绿茶 500ml",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"三得利 500ml 原叶萃取",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"三得利 500ml 橘皮乌龙",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"三得利 500ml 清香乌龙",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"鸿福堂 竹蔗茅根",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"鸿福堂 雪梨海底椰",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"鸿福堂 罗汉果",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"茶π 柠檬红茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"茶π 柚子绿茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"好望水 桂圆水",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"好望水 陈皮水",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"有气草本 薏米水",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"好自在 金银花雪梨水",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"东方树叶 500ml 陈皮白茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"东方树叶 900ml 陈皮白茶",
-category:"饮料",
-price:9.00,
-icon:"🥤"
-},
-
-{
-name:"东方树叶 500ml 茉莉花茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"东方树叶 900ml 乌龙茶",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"康师傅 500ml 酸梅汤",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-{
-name:"康师傅 500ml 绿茶",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"康师傅 500ml 冰红茶",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"康师傅 1L 茉莉花茶",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"星巴克 270ml 芝士奶香拿铁",
-category:"饮料",
-price:9.00,
-icon:"🥤"
-},
-
-{
-name:"星巴克 270ml 美式",
-category:"饮料",
-price:9.00,
-icon:"🥤"
-},
-
-{
-name:"星巴克 281ml 摩卡",
-category:"饮料",
-price:15.00,
-icon:"🥤"
-},
-
-{
-name:"星巴克 281ml 咖啡",
-category:"饮料",
-price:15.00,
-icon:"🥤"
-},
-
-{
-name:"健力宝 560ml",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"健力宝 560ml 柠蜜味",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"芬达 500ml 葡萄",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"芬达 500ml 橙味",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"芬达 500ml 水蜜桃",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"雪碧 500ml",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"雪碧 330ml",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"脉动 600ml 青柠",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"脉动 600ml 桃子",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"元气森林 西瓜味",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"苏打天然水 SODA",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"苏打天然水 SODA 柑橘",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"可口可乐 330ml",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-{
-name:"100号 325ml",
-category:"饮料",
-price:2.00,
-icon:"🥤"
-},
-
-{
-name:"百事可乐 2L",
-category:"饮料",
-price:10.00,
-icon:"🥤"
-},
-
-{
-name:"冰茶 450ml 柠檬茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"冰茶 900ml 柠檬茶",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"冰茶 900ml 白桃茉莉",
-category:"饮料",
-price:10.00,
-icon:"🥤"
-},
-
-{
-name:"华洋1982 358ml 白桃樱花",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"华洋1982 358ml 荔枝",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"华洋1982 358ml 橙子",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"华洋1982 358ml 砂糖桔",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"蒙牛真果粒 250g 芦荟",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"蒙牛真果粒 250g 草莓",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"安慕希 230g 百香果",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"安慕希 230g 原味",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"安慕希 200g 草莓麦子",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-{
-name:"达利园-法式软面包",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"达利园-法式小面包",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"达利园-瑞士卷 香蕉 / 草莓 / 橙味",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"逗泥-老面包",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"然利-金山角 大麦 / 红丝 / 巧克力",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"好丽友-蛋黄派",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥐"
-},
-
-{
-name:"米老头蛋黄煎饼-牛奶味",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥞"
-},
-
-{
-name:"米芭兹薯片夹心饼干-花生 / 巧克力",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"梅尼耶巴黎蛋糕",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍰"
-},
-
-{
-name:"米芭兹碱水黄油贝果",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🥯"
-},
-
-{
-name:"米芭兹小脆饼干 黑松露火腿",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"太平小包 香葱 / 芝麻 / 奶盐",
-category:"面包 / 小蛋糕 / 饼干",
-price:6.00,
-icon:"🍪"
-},
-
-{
-name:"太平大包 芝麻 / 海苔 / 奶盐",
-category:"面包 / 小蛋糕 / 饼干",
-price:14.00,
-icon:"🍪"
-},
-
-{
-name:"沙琪玛 香酥鸡蛋",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍰"
-},
-
-{
-name:"沙琪玛 紫薯 / 坚果 / 奶盖 / 肉松",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍰"
-},
-
-{
-name:"amazing cracker-酸奶洋葱",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"aji 黑松露惊饼",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"法丽兹 香草柠檬 / 抹茶",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"法丽兹黄油椰子夹心蛋卷",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-{
-name:"沙琪玛 香酥鸡蛋",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍰"
-},
-
-{
-name:"沙琪玛 紫薯 / 坚果 / 奶盖 / 肉松",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍰"
-},
-
-{
-name:"amazing cracker-酸奶洋葱",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"aji 黑松露惊饼",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"法丽兹 香草柠檬 / 抹茶",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"法丽兹黄油椰子夹心蛋卷",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"徐福记卷心酥 草莓 / 牛奶",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"奥利奥 抹茶 / 巧克力 / 原味 / 葡萄水蜜桃",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"奥利奥薄脆 香草",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"奥利奥可可脆卷 香草 / 抹茶 / 巧克力",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"奥利奥迷你",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"mimicat黄油猫酥饼",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"mimicat黄油咖啡饼",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"mimicat夹心薄饼 柠檬",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"大黄油饼干",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"黄油鸡蛋曲奇",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"mimicat黄油青柠椰饼",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"嘉士利巧克力薄脆饼",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"miss emma 棒子威化饼干",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"康师傅 3+2 苏打夹心 香草巧克力 / 奶油",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-{
-name:"嘉士利果乐果香 草莓 / 蓝莓",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"趣多多香脆曲奇 巧克力",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"cardy曲奇挞挞 抹茶 / 草莓",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"c2软心挞 黑巧克力",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"回头客 山药素饼",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"君年旺 钙奶山药饼",
-category:"面包 / 小蛋糕 / 饼干",
-price:null,
-icon:"🍪"
-},
-
-{
-name:"好吃点 核桃 / 腰果 / 杏仁",
-category:"面包 / 小蛋糕 / 饼干",
-price:6.00,
-icon:"🍪"
-},
-
-{
-name:"华味亨打手瓜子 多味",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"老街口 鸭屎香茶 花生",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"老街口 山核桃 / 奶油",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"老街口 陈皮瓜子",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"呱呱古法瓜子 陈皮",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"恰恰瓜子 山核桃 / 焦糖 / 椰香",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"恰恰香瓜子 百煮 / 奶香",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"甘源 牛肉味瓜子仁",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"甘源 蟹黄味蚕豆",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"甘源 芥末味青豌豆",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"百草味 夏威夷果 奶油",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"百草味 阳光炭烤腰果",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"思宏 手剥烤核桃 奶香",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-{
-name:"呱呱古法花生 蒜香",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"呱呱古法花生 陈皮",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"冠华南乳花生仁",
-category:"花生 / 瓜子",
-price:null,
-icon:"🥜"
-},
-
-{
-name:"乐事无限 90g 牛扒 / 黄瓜 / 青柠 / 番茄 / 原味",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"乐事无限 40g 黄瓜 / 番茄 / 原味 / 烤肉",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"乐事 70g 番茄 / 黄瓜 / 原味 / 烧烤 / 海苔 / 青柠",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"乐事大波浪",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"可比克105g 原味 / 番茄",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"咯吱脆 麻辣 / 葱香 / 烧烤 / 泡菜 / 原味",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"亲嘴烧 辣条",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 辣条",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 魔芋爽",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 大面筋",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 小面筋",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 亲嘴烧",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 风吃海带",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 海带",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 香辣卤藕",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 香辣豆皮",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 香辣土豆片",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-{
-name:"卫龙 香辣海带",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 魔芋爽",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 大面筋",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙 小面筋",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"卫龙亲嘴烧",
-category:"零食 / 薯片 / 辣条",
-price:1.50,
-icon:"🌶️"
-},
-
-{
-name:"阿尔卑斯棒棒糖",
-category:"零食 / 薯片 / 辣条",
-price:null,
-icon:"🌶️"
-},
-
-{
-name:"康师傅 酸辣 / 香辣 / 泡椒 / 红烧 / 藤椒 / 鲜虾 / 酸味",
-category:"泡面 / 米线 / 螺蛳粉",
-price:6.00,
-icon:"🍜"
-},
-
-{
-name:"康师傅 红烧牛肉面",
-category:"泡面 / 米线 / 螺蛳粉",
-price:6.00,
-icon:"🍜"
-},
-
-{
-name:"康师傅 老坛酸菜牛肉面",
-category:"泡面 / 米线 / 螺蛳粉",
-price:6.00,
-icon:"🍜"
-},
-
-{
-name:"统一 酸菜牛肉面",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-{
-name:"统一 老坛酸菜牛肉面",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"今麦郎 红烧牛肉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"统一 酸菜 / 泡椒",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"康师傅 1倍半红烧",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"今麦郎 安徽板面",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"满潮大餐 麻辣牛肉面",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"满小饱 黑鸭拌面",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"海底捞 自煮火锅 番茄 / 麻辣嫩牛 / 脆爽牛肚",
-category:"泡面 / 米线 / 螺蛳粉",
-price:23.00,
-icon:"🍜"
-},
-
-{
-name:"海底捞 香辣肉丸",
-category:"泡面 / 米线 / 螺蛳粉",
-price:16.00,
-icon:"🍜"
-},
-
-{
-name:"满小饱 黑鸭拌面 / 肥汁土豆 / 贵州酸汤 / 云南风味 / 松茸鸡汤 / 酸菜火锅",
-category:"泡面 / 米线 / 螺蛳粉",
-price:13.00,
-icon:"🍜"
-},
-{
-name:"臭宝螺蛳粉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:10.90,
-icon:"🍜"
-},
-
-{
-name:"李子柒螺蛳粉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:14.00,
-icon:"🍜"
-},
-
-{
-name:"螺霸王 螺蛳粉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"柳全 螺蛳粉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"莫小仙 螺蛳粉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"莫小仙 香辣素食",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"莫小仙 重庆麻辣",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"合正然 煲仔饭 腊肠 / 卤肉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"莫小仙 煲仔饭 香肠 / 腊肉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"海底捞 菌菇牛肉饭",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-{
-name:"海底捞烧椒牛肉饭",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"自嗨锅回锅肉煲仔饭",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"自嗨锅卤肉煲仔饭",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"自嗨锅川味腊肠煲仔饭",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"海底捞红烧牛肉饭",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"莫小仙笋尖牛肉饭",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"陈村和毛黄拌面",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"拉面说 金汤肥牛 / 豚骨叉烧",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"莫小仙老成都火锅",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"莫小仙香辣素食",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-{
-name:"莫小仙重庆麻辣",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"合正然煲仔饭 腊肠 / 卤肉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"海底捞自煮火锅 番茄 / 麻辣嫩牛 / 脆爽牛肚",
-category:"泡面 / 米线 / 螺蛳粉",
-price:23.00,
-icon:"🍜"
-},
-
-{
-name:"海底捞香辣肉丸",
-category:"泡面 / 米线 / 螺蛳粉",
-price:16.00,
-icon:"🍜"
-},
-
-{
-name:"满小饱黑鸭拌面 / 肥汁土豆 / 贵州酸汤 / 云南风味 / 松茸鸡汤 / 酸菜火锅",
-category:"泡面 / 米线 / 螺蛳粉",
-price:13.00,
-icon:"🍜"
-},
-
-{
-name:"好欢螺柳州螺蛳粉 400g",
-category:"泡面 / 米线 / 螺蛳粉",
-price:15.00,
-icon:"🍜"
-},
-
-{
-name:"好欢螺柳州螺蛳粉 300g",
-category:"泡面 / 米线 / 螺蛳粉",
-price:15.00,
-icon:"🍜"
-},
-
-{
-name:"好欢螺加辣版",
-category:"泡面 / 米线 / 螺蛳粉",
-price:15.00,
-icon:"🍜"
-},
-
-{
-name:"臭宝螺蛳粉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:10.90,
-icon:"🍜"
-},
-
-{
-name:"李子柒螺蛳粉",
-category:"泡面 / 米线 / 螺蛳粉",
-price:14.00,
-icon:"🍜"
-},
-{
-name:"好欢螺螺蛳粉 番茄味",
-category:"泡面 / 米线 / 螺蛳粉",
-price:null,
-icon:"🍜"
-},
-
-{
-name:"维达 超韧10包",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:22.00,
-icon:"🧻"
-},
-
-{
-name:"维达 棉韧6包",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:17.00,
-icon:"🧻"
-},
-
-{
-name:"维达 便捷手帕12包",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:12.00,
-icon:"🧻"
-},
-
-{
-name:"维达 纸手帕",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:1.00,
-icon:"🧻"
-},
-
-{
-name:"维达 纸手帕24包",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:16.00,
-icon:"🧻"
-},
-
-{
-name:"洁柔手帕纸",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:1.00,
-icon:"🧻"
-},
-
-{
-name:"洁柔手帕纸30包",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:11.00,
-icon:"🧻"
-},
-
-{
-name:"维达杀菌香湿巾10片",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:6.50,
-icon:"🧻"
-},
-
-{
-name:"洁柔清爽洁肤湿巾10片",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:6.00,
-icon:"🧻"
-},
-{
-name:"洁柔净颜洗面巾70抽",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:16.00,
-icon:"🧻"
-},
-
-{
-name:"相印厨房纸巾2卷",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:13.00,
-icon:"🧻"
-},
-
-{
-name:"相印卫生湿巾80抽",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:10.00,
-icon:"🧻"
-},
-
-{
-name:"相印10卷纸",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:15.00,
-icon:"🧻"
-},
-
-{
-name:"相印棉柔洁面巾80抽",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:null,
-icon:"🧻"
-},
-
-{
-name:"洁丽雅一次性洗面巾6包",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:null,
-icon:"🧻"
-},
-
-{
-name:"洁丽雅一次性洗面巾",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:null,
-icon:"🧻"
-},
-
-{
-name:"洁柔 face 黑软",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:null,
-icon:"🧻"
-},
-
-{
-name:"清风抽纸3包",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:null,
-icon:"🧻"
-},
-
-{
-name:"清风抽纸",
-category:"纸巾 / 湿巾 / 洗面巾",
-price:null,
-icon:"🧻"
-},
-{
-name:"施华蔻多效修复润滑乳",
-category:"日常用品",
-price:49.00,
-icon:"🧴"
-},
-
-{
-name:"施华蔻羊绒脂滋养洗发露",
-category:"日常用品",
-price:49.00,
-icon:"🧴"
-},
-
-{
-name:"施华蔻金顿盛润精油润发乳 / 洗发露",
-category:"日常用品",
-price:49.00,
-icon:"🧴"
-},
-
-{
-name:"飘柔润养柔顺护发素",
-category:"日常用品",
-price:30.00,
-icon:"🧴"
-},
-
-{
-name:"飘柔3效合1多效滋润修护洗发露",
-category:"日常用品",
-price:29.00,
-icon:"🧴"
-},
-
-{
-name:"飘柔3效合1垂顺亮泽洗发露",
-category:"日常用品",
-price:38.00,
-icon:"🧴"
-},
-
-{
-name:"韩方五谷颈域去屑洗发水",
-category:"日常用品",
-price:42.00,
-icon:"🧴"
-},
-
-{
-name:"韩方五谷颈域控油洗发水",
-category:"日常用品",
-price:42.00,
-icon:"🧴"
-},
-
-{
-name:"阿道夫焗油护发素",
-category:"日常用品",
-price:16.00,
-icon:"🧴"
-},
-
-{
-name:"霸王乌固发洗发水",
-category:"日常用品",
-price:38.00,
-icon:"🧴"
-},
-{
-name:"蜜花蚕丝蛋白营养护发素",
-category:"日常用品",
-price:12.00,
-icon:"🧴"
-},
-
-{
-name:"蜜花护发素",
-category:"日常用品",
-price:12.00,
-icon:"🧴"
-},
-
-{
-name:"修正男士抑菌洗液",
-category:"日常用品",
-price:30.00,
-icon:"🧴"
-},
-
-{
-name:"舒肤佳 薰衣草 / 金银花",
-category:"日常用品",
-price:16.00,
-icon:"🧴"
-},
-
-{
-name:"lux香皂幽莲魅肤",
-category:"日常用品",
-price:5.00,
-icon:"🧴"
-},
-
-{
-name:"舒肤佳香皂 菊花 / 芦荟 / 柠檬 / 纯白",
-category:"日常用品",
-price:5.50,
-icon:"🧴"
-},
-
-{
-name:"可悠然美肌沐浴露 欣怡 / 幽香 / 花漾之恋 / 恬静清香 / 碧野悠悠",
-category:"日常用品",
-price:33.00,
-icon:"🧴"
-},
-
-{
-name:"潘婷乳液修复精华素 200ml",
-category:"日常用品",
-price:16.00,
-icon:"🧴"
-},
-
-{
-name:"潘婷丝质顺滑精华素 200ml",
-category:"日常用品",
-price:16.00,
-icon:"🧴"
-},
-
-{
-name:"潘婷3分钟奇迹奢护精华霜",
-category:"日常用品",
-price:25.00,
-icon:"🧴"
-},
-{
-name:"沙宣修护水养洗发水",
-category:"日常用品",
-price:18.00,
-icon:"🧴"
-},
-
-{
-name:"沙宣水润去屑洗发水",
-category:"日常用品",
-price:18.00,
-icon:"🧴"
-},
-
-{
-name:"clear清扬男士控油型",
-category:"日常用品",
-price:15.00,
-icon:"🧴"
-},
-
-{
-name:"潘婷乳液修护去屑洗发露 750g / 500ml",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"潘婷丝质顺滑洗发露",
-category:"日常用品",
-price:32.00,
-icon:"🧴"
-},
-
-{
-name:"lux茶树精油小苍兰香沐浴露550g",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"寇斯汀玫瑰瓣汁沐浴露",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"寇斯汀茉莉花花瓣沐浴露",
-category:"日常用品",
-price:9.90,
-icon:"🧴"
-},
-
-{
-name:"多芬栀花馥香浓密沐浴露",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"多芬深层营润滋养美沐浴露1000g / 480g",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-{
-name:"沙宣修护水养洗发水",
-category:"日常用品",
-price:18.00,
-icon:"🧴"
-},
-
-{
-name:"沙宣水润去屑洗发水",
-category:"日常用品",
-price:18.00,
-icon:"🧴"
-},
-
-{
-name:"clear清扬男士控油型",
-category:"日常用品",
-price:15.00,
-icon:"🧴"
-},
-
-{
-name:"潘婷乳液修护去屑洗发露 750g / 500ml",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"潘婷丝质顺滑洗发露",
-category:"日常用品",
-price:32.00,
-icon:"🧴"
-},
-
-{
-name:"lux茶树精油小苍兰香沐浴露550g",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"寇斯汀玫瑰瓣汁沐浴露",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"寇斯汀茉莉花花瓣沐浴露",
-category:"日常用品",
-price:9.90,
-icon:"🧴"
-},
-
-{
-name:"多芬栀花馥香浓密沐浴露",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"多芬深层营润滋养美沐浴露1000g / 480g",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-{
-name:"雅漾舒泉调理喷雾",
-category:"日常用品",
-price:23.00,
-icon:"🧴"
-},
-
-{
-name:"妮维雅止汗露",
-category:"日常用品",
-price:25.00,
-icon:"🧴"
-},
-
-{
-name:"旁氏水润柔嫩洁面乳",
-category:"日常用品",
-price:19.00,
-icon:"🧴"
-},
-
-{
-name:"妮维雅控油劲爽洁面乳",
-category:"日常用品",
-price:19.00,
-icon:"🧴"
-},
-
-{
-name:"妮维雅收缩毛孔洁面乳",
-category:"日常用品",
-price:19.00,
-icon:"🧴"
-},
-
-{
-name:"妮维雅深层劲爽洗面奶",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"欧莱雅碳爽控油",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"欧莱雅控油清痘洁面乳",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"曼秀雷敦黑头火山泥",
-category:"日常用品",
-price:45.00,
-icon:"🧴"
-},
-
-{
-name:"曼秀雷敦冰爽活炭",
-category:"日常用品",
-price:48.00,
-icon:"🧴"
-},
-{
-name:"曼秀雷敦控油抗痘",
-category:"日常用品",
-price:48.00,
-icon:"🧴"
-},
-
-{
-name:"曼秀雷敦保湿活力泡沫",
-category:"日常用品",
-price:50.00,
-icon:"🧴"
-},
-
-{
-name:"汰渍净白去渍1.15千克",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"立白大师香气",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"洗白除菌去渍",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮深层洁净护衣护色1kg / 3kg",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮深层洁净亮白增艳500g / 2kg",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮漂白水600g",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"超能柔顺舒适洗衣凝珠",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮洗手液255ml",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-{
-name:"蓝月亮抑菌洗手液500g",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮清爽洗手液",
-category:"日常用品",
-price:15.00,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮84消毒水",
-category:"日常用品",
-price:12.00,
-icon:"🧴"
-},
-
-{
-name:"澳佳葆医用消毒水",
-category:"日常用品",
-price:16.00,
-icon:"🧴"
-},
-{
-name:"滴露消毒水750ml",
-category:"日常用品",
-price:48.00,
-icon:"🧴"
-},
-
-{
-name:"超威强力洁厕精",
-category:"日常用品",
-price:8.00,
-icon:"🧴"
-},
-
-{
-name:"立白新金桔洗洁精",
-category:"日常用品",
-price:6.00,
-icon:"🧴"
-},
-
-{
-name:"立白清新柠檬洗洁精",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮地板清洁剂",
-category:"日常用品",
-price:22.00,
-icon:"🧴"
-},
-
-{
-name:"卫诺香氛洁厕精",
-category:"日常用品",
-price:30.00,
-icon:"🧴"
-},
-{
-name:"超威强力洗洁剂",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"奥妙超效洗衣粉",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"雕牌增白皂",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮手洗专用",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮双用型",
-category:"日常用品",
-price:null,
-icon:"🧴"
-},
-
-{
-name:"妍乐花香爆炸盐",
-category:"日常用品",
-price:10.00,
-icon:"🧴"
-},
-
-{
-name:"妍乐爆炸盐 白衣彩衣通用",
-category:"日常用品",
-price:10.00,
-icon:"🧴"
-},
-
-{
-name:"雕牌透明皂",
-category:"日常用品",
-price:6.00,
-icon:"🧴"
-},
-
-{
-name:"超能植沐悦洗衣液 抗串色抗发黄",
-category:"日常用品",
-price:3.00,
-icon:"🧴"
-},
-
-{
-name:"立白洗衣凝珠52颗",
-category:"日常用品",
-price:18.00,
-icon:"🧴"
-},
-{
-name:"蓝月亮至尊洗衣液",
-category:"日常用品",
-price:55.00,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮茉莉樱花内衣专用",
-category:"日常用品",
-price:20.00,
-icon:"🧴"
-},
-
-{
-name:"蓝月亮茉莉樱花旅行版",
-category:"日常用品",
-price:8.00,
-icon:"🧴"
-},
-
-{
-name:"小黄鸭衣架8支",
-category:"家具 / 厨房用品",
-price:10.00,
-icon:"🍳"
-},
-
-{
-name:"佳一极简风小刷",
-category:"家具 / 厨房用品",
-price:2.50,
-icon:"🍳"
-},
-
-{
-name:"蚊子拍",
-category:"家具 / 厨房用品",
-price:2.50,
-icon:"🍳"
-},
-
-{
-name:"佳一多用刷",
-category:"家具 / 厨房用品",
-price:5.00,
-icon:"🍳"
-},
-
-{
-name:"榴莲扇子",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-
-{
-name:"幸运扇",
-category:"家具 / 厨房用品",
-price:6.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭洗浴球",
-category:"家具 / 厨房用品",
-price:5.00,
-icon:"🍳"
-},
-{
-name:"英吉利超威2",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-
-{
-name:"吉列威锋",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-
-{
-name:"白惜漱口水 茉莉龙井 / 柚见青提 / 柠香凤梨",
-category:"家具 / 厨房用品",
-price:20.00,
-icon:"🍳"
-},
-
-{
-name:"insdoctor医用口腔",
-category:"家具 / 厨房用品",
-price:28.00,
-icon:"🍳"
-},
-
-{
-name:"李施德林漱口水 樱花蜜桃 / 冰蓝零度",
-category:"家具 / 厨房用品",
-price:16.00,
-icon:"🍳"
-},
-
-{
-name:"701珂蒂丝牙刷两支",
-category:"家具 / 厨房用品",
-price:6.00,
-icon:"🍳"
-},
-
-{
-name:"703珂蒂丝软牙刷两支",
-category:"家具 / 厨房用品",
-price:6.00,
-icon:"🍳"
-},
-
-{
-name:"603珂蒂丝舒爽牙刷",
-category:"家具 / 厨房用品",
-price:5.00,
-icon:"🍳"
-},
-
-{
-name:"557珂蒂丝净白防滑软毛",
-category:"家具 / 厨房用品",
-price:4.00,
-icon:"🍳"
-},
-
-{
-name:"558珂蒂丝优护亮白软毛",
-category:"家具 / 厨房用品",
-price:4.00,
-icon:"🍳"
-},
-{
-name:"皓齿良品牙刷",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-
-{
-name:"青蛙软毛牙刷",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-
-{
-name:"972飘雪软毛牙刷",
-category:"家具 / 厨房用品",
-price:5.00,
-icon:"🍳"
-},
-
-{
-name:"506珂蒂丝螺旋中毛牙刷",
-category:"家具 / 厨房用品",
-price:4.00,
-icon:"🍳"
-},
-
-{
-name:"飘雪儿童牙刷",
-category:"家具 / 厨房用品",
-price:4.00,
-icon:"🍳"
-},
-
-{
-name:"827飘雪软毛牙刷",
-category:"家具 / 厨房用品",
-price:4.00,
-icon:"🍳"
-},
-
-{
-name:"白惜小头牙刷",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-
-{
-name:"云南白药薄荷清新牙膏",
-category:"家具 / 厨房用品",
-price:19.00,
-icon:"🍳"
-},
-
-{
-name:"云南白药留兰香型牙膏",
-category:"家具 / 厨房用品",
-price:19.00,
-icon:"🍳"
-},
-
-{
-name:"云南白药金口健",
-category:"家具 / 厨房用品",
-price:18.00,
-icon:"🍳"
-},
-{
-name:"黑人超白牙膏",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-
-{
-name:"黑人茶倍健牙膏",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-
-{
-name:"一次性牙刷",
-category:"家具 / 厨房用品",
-price:2.00,
-icon:"🍳"
-},
-
-{
-name:"一次性牙刷+牙膏",
-category:"家具 / 厨房用品",
-price:2.00,
-icon:"🍳"
-},
-
-{
-name:"白惜漱口水6口味",
-category:"家具 / 厨房用品",
-price:5.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭开瓶器",
-category:"家具 / 厨房用品",
-price:6.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭烧烤夹",
-category:"家具 / 厨房用品",
-price:8.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭磨刀石",
-category:"家具 / 厨房用品",
-price:8.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭削皮刀",
-category:"家具 / 厨房用品",
-price:10.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭黑珍珠汤勺",
-category:"家具 / 厨房用品",
-price:10.00,
-icon:"🍳"
-},
-{
-name:"小黄鸭小汤勺",
-category:"家具 / 厨房用品",
-price:10.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭分漏7公分",
-category:"家具 / 厨房用品",
-price:10.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭厨房炒铲",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭厨房剪刀",
-category:"家具 / 厨房用品",
-price:15.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭家用剪刀",
-category:"家具 / 厨房用品",
-price:10.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭锋刃三件套",
-category:"家具 / 厨房用品",
-price:28.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭勺子",
-category:"家具 / 厨房用品",
-price:5.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭筷子",
-category:"家具 / 厨房用品",
-price:5.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭锅铲",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭漏勺",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-{
-name:"小黄鸭砧板",
-category:"家具 / 厨房用品",
-price:79.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭花梨木漏网",
-category:"家具 / 厨房用品",
-price:13.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭五福厨具套装",
-category:"家具 / 厨房用品",
-price:32.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭调料盒",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭保鲜膜",
-category:"家具 / 厨房用品",
-price:12.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭不锈钢电热水壶",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭福利多用汤锅",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭多用电磁炉",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭德系316双面花炒锅",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭双层防烫电热水壶",
-category:"家具 / 厨房用品",
-price:null,
-icon:"🍳"
-},
-{
-name:"小黄鸭福利多用奶锅",
-category:"家具 / 厨房用品",
-price:48.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭智能饭煲",
-category:"家具 / 厨房用品",
-price:178.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭一次性筷子12双",
-category:"家具 / 厨房用品",
-price:6.00,
-icon:"🍳"
-},
-
-{
-name:"小黄鸭一次性筷子25双",
-category:"家具 / 厨房用品",
-price:8.00,
-icon:"🍳"
-},
-{
-name:"焕神能量饮料",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"奈雪 羽衣甘蓝茉莉花茶",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"奈雪 多维橙C凤凰单丛茶",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"奈雪果茶 青提香乌龙茶",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"奈雪果茶 蜜桃乌龙茶",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"王老吉 310ml",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"优酸乳 AD钙",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"优酸乳 原味",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"优酸乳 草莓",
-category:"饮料",
-price:3.00,
-icon:"🥤"
-},
-
-{
-name:"旺仔牛奶245ml",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"红牛",
-category:"饮料",
-price:6.50,
-icon:"🥤"
-},
-
-{
-name:"冰峰",
-category:"饮料",
-price:3.50,
-icon:"🥤"
-},
-
-{
-name:"大窑480ml 荔爱",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"大窑480ml 橙诺",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"大窑500ml 橙诺",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"大窑480ml 嘉宾",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"大窑 500ml 嘉宾",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"Farm fresh 1L 巧克力味",
-category:"饮料",
-price:12.00,
-icon:"🥤"
-},
-
-{
-name:"Farm fresh 1L 鲜奶",
-category:"饮料",
-price:12.00,
-icon:"🥤"
-},
-
-{
-name:"Farm fresh 200ml 拿铁",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-{
-name:"Farm fresh 200ml 鲜奶",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"每日C 500ml 水蜜桃",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"哇哈哈AD钙 450ml",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"哇哈哈 AD钙 220g",
-category:"饮料",
-price:2.50,
-icon:"🥤"
-},
-
-{
-name:"维维豆奶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"维他 柠檬茶250ml",
-category:"饮料",
-price:3.50,
-icon:"🥤"
-},
-
-{
-name:"维他 柠檬茶 310ml",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"瑞幸 经典美式",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"瑞幸 柚C美式",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"瑞幸 生椰拿铁",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"28+ 300g 黄桃酸奶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"28+ 300g 草莓酸奶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"统一绿茶 500ml",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"三得利 500ml 原叶萃取",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"三得利 500ml 橘皮乌龙",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"三得利 500ml 清香乌龙",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"鸿福堂 竹蔗茅根",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"鸿福堂 雪梨海底椰",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"鸿福堂 罗汉果",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"茶π 柠檬红茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"茶π 柚子绿茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"好望水 桂圆水",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"好望水 陈皮水",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"有气草本 薏米水",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"好自在 金银花雪梨水",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"东方树叶 500ml 陈皮白茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"东方树叶 900ml 陈皮白茶",
-category:"饮料",
-price:9.00,
-icon:"🥤"
-},
-
-{
-name:"东方树叶 500ml 茉莉花茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"东方树叶 900ml 乌龙茶",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"康师傅 500ml 酸梅汤",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-{
-name:"康师傅 500ml 绿茶",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"康师傅 500ml 冰红茶",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"康师傅 1L 茉莉花茶",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"星巴克 270ml 芝士奶香拿铁",
-category:"饮料",
-price:9.00,
-icon:"🥤"
-},
-
-{
-name:"星巴克 270ml 美式",
-category:"饮料",
-price:9.00,
-icon:"🥤"
-},
-
-{
-name:"星巴克 281ml 摩卡",
-category:"饮料",
-price:15.00,
-icon:"🥤"
-},
-
-{
-name:"星巴克 281ml 咖啡",
-category:"饮料",
-price:15.00,
-icon:"🥤"
-},
-
-{
-name:"健力宝 560ml",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"健力宝 560ml 柠蜜味",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"芬达 500ml 葡萄",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"芬达500ml 橙味",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"芬达 500ml 水蜜桃",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"雪碧 500ml",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"雪碧330ml",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"脉动 600ml 青柠",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"脉动 600ml桃子",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"元气森林 西瓜味",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"苏打天然水SODA",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"苏打天然水SODA 柑橘",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"可口可乐 330ml",
-category:"饮料",
-price:4.00,
-icon:"🥤"
-},
-
-{
-name:"100号 325ml",
-category:"饮料",
-price:2.00,
-icon:"🥤"
-},
-
-{
-name:"百事可乐2L",
-category:"饮料",
-price:10.00,
-icon:"🥤"
-},
-
-{
-name:"冰茶 450ml 柠檬茶",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"冰茶 900ml 柠檬茶",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"冰茶 900ml 白桃茉莉",
-category:"饮料",
-price:10.00,
-icon:"🥤"
-},
-
-{
-name:"华洋1982 358ml 白桃樱花",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"华洋1982 358ml 荔枝",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"华洋1982 358ml 橙子",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"华洋1982 358ml 砂糖桔",
-category:"饮料",
-price:6.00,
-icon:"🥤"
-},
-
-{
-name:"蒙牛真果粒 250g 芦荟",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-{
-name:"蒙牛真果粒 250g 草莓",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"安慕希 230g 百香果",
-category:"饮料",
-price:7.00,
-icon:"🥤"
-},
-
-{
-name:"安慕希 230g 原味",
-category:"饮料",
-price:5.00,
-icon:"🥤"
-},
-
-{
-name:"安慕希 200g 草莓麦子",
-category:"饮料",
-price:6.00,
-icon:"🥤”
-｝
-];
-alert("商品数量：" + PRODUCTS.length);
-const catalogue = document.createElement("section");
-catalogue.id = "catalogue";
-document.body.appendChild(catalogue);
-
-const style = document.createElement("style");
-style.textContent = `
-#catalogue{
-  padding:30px 16px 120px;
-  max-width:1200px;
-  margin:auto;
-  font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;
-}
-
-.catalogue-title{
-  font-size:28px;
-  font-weight:800;
-  margin-bottom:8px;
-}
-
-.catalogue-count{
-  color:#777;
-  margin-bottom:20px;
-}
-
-.search-box{
-  width:100%;
-  box-sizing:border-box;
-  padding:15px 18px;
-  border:1px solid #ddd;
-  border-radius:14px;
-  font-size:16px;
-  outline:none;
-  margin-bottom:16px;
-}
-
-.search-box:focus{
-  border-color:#d71920;
-}
-
-.category-list{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding-bottom:12px;
-  margin-bottom:20px;
-}
-
-.category-btn{
-  flex-shrink:0;
-  border:1px solid #ddd;
-  background:#fff;
-  padding:9px 15px;
-  border-radius:20px;
-  font-size:14px;
-}
-
-.category-btn.active{
-  background:#d71920;
-  color:#fff;
-  border-color:#d71920;
-}
-
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.product-card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:16px;
-  padding:15px;
-  box-shadow:0 3px 12px rgba(0,0,0,.05);
-}
-
-.product-icon{
-  font-size:38px;
-  margin-bottom:10px;
-}
-
-.product-name{
-  font-size:15px;
-  font-weight:700;
-  line-height:1.45;
-  min-height:44px;
-}
-
-.product-category{
-  color:#888;
-  font-size:12px;
-  margin-top:6px;
-}
-
-.product-price{
-  color:#d71920;
-  font-size:18px;
-  font-weight:800;
-  margin-top:10px;
-}
-
-.price-update{
-  color:#999;
-  font-size:14px;
-}
-
-@media(min-width:700px){
-  .product-grid{
-    grid-template-columns:repeat(4,1fr);
-  }
-}
-`;
-
-document.head.appendChild(style);
-
-catalogue.innerHTML = `
-  <div class="catalogue-title">商品目录</div>
-  <div class="catalogue-count" id="productCount"></div>
-
-  <input
-    id="productSearch"
-    class="search-box"
-    type="search"
-    placeholder="搜索商品名称..."
-  >
-
-  <div id="categoryList" class="category-list"></div>
-
-  <div id="productGrid" class="product-grid"></div>
-`;
-
-const productGrid = document.getElementById("productGrid");
-const productSearch = document.getElementById("productSearch");
-const categoryList = document.getElementById("categoryList");
-const productCount = document.getElementById("productCount");
-
-let currentCategory = "全部";
-let currentSearch = "";
-
-const categories = [
-  "全部",
-  ...new Set(PRODUCTS.map(product => product.category))
-];
-
-categories.forEach(category => {
-  const button = document.createElement("button");
-  button.className = "category-btn";
-  button.textContent = category;
-
-  if(category === "全部"){
-    button.classList.add("active");
-  }
-
-  button.onclick = () => {
-    currentCategory = category;
-
-    document
-      .querySelectorAll(".category-btn")
-      .forEach(btn => btn.classList.remove("active"));
-
-    button.classList.add("active");
-
-    renderProducts();
-  };
-
-  categoryList.appendChild(button);
-});
-
-function renderProducts(){
-
-  const keyword = currentSearch.trim().toLowerCase();
-
-  const filteredProducts = PRODUCTS.filter(product => {
-
-    const matchCategory =
-      currentCategory === "全部" ||
-      product.category === currentCategory;
-
-    const matchSearch =
-      product.name.toLowerCase().includes(keyword);
-
-    return matchCategory && matchSearch;
-  });
-
-  productCount.textContent =
-    `共 ${filteredProducts.length} 件商品`;
-
-  productGrid.innerHTML = "";
-
-  if(filteredProducts.length === 0){
-    productGrid.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:60px 20px;
-        color:#999;
-      ">
-        找不到相关商品
-      </div>
-    `;
-    return;
-  }
-
-  filteredProducts.forEach(product => {
-
-    const card = document.createElement("div");
-    card.className = "product-card";
-
-    const priceHTML =
-      product.price === null
-      ? `<div class="price-update">价格待更新</div>`
-      : `<div class="product-price">
-           RM ${product.price.toFixed(2)}
-         </div>`;
-
-    card.innerHTML = `
-      <div class="product-icon">${product.icon}</div>
-
-      <div class="product-name">
-        ${product.name}
-      </div>
-
-      <div class="product-category">
-        ${product.category}
-      </div>
-
-      ${priceHTML}
-    `;
-
-    productGrid.appendChild(card);
-  });
-}
-
-productSearch.addEventListener("input", function(){
-  currentSearch = this.value;
-  renderProducts();
-});
-
-renderProducts();
-// ==================== SHOPPING CART ====================
-
-let cart = {};
-
-const cartButton = document.createElement("button");
-cartButton.id = "cartButton";
-cartButton.innerHTML = "🛒 <span id=\"cartCount\">0</span>";
-document.body.appendChild(cartButton);
-
-const cartDrawer = document.createElement("div");
-cartDrawer.id = "cartDrawer";
-
-cartDrawer.innerHTML = `
-  <div class="cart-header">
-    <strong>购物车</strong>
-    <button id="closeCart">✕</button>
-  </div>
-
-  <div id="cartItems"></div>
-
-  <div class="cart-footer">
-    <div class="cart-total">
-      <span>Total</span>
-      <strong id="cartTotal">RM 0.00</strong>
-    </div>
-
-    <button id="clearCart" class="clear-cart">
-      清空购物车
-    </button>
-  </div>
-`;
-
-document.body.appendChild(cartDrawer);
-
-const cartStyle = document.createElement("style");
-
-cartStyle.textContent = `
-#cartButton{
-  position:fixed;
-  right:18px;
-  bottom:20px;
-  z-index:9999;
-  border:0;
-  border-radius:50px;
-  padding:14px 20px;
-  background:#d71920;
-  color:white;
-  font-size:17px;
-  font-weight:700;
-  box-shadow:0 5px 20px rgba(0,0,0,.25);
-}
-
-#cartCount{
-  background:white;
-  color:#d71920;
-  border-radius:50%;
-  padding:2px 7px;
-  margin-left:4px;
-}
-
-#cartDrawer{
-  position:fixed;
-  right:-420px;
-  top:0;
-  width:min(400px,92vw);
-  height:100vh;
-  background:white;
-  z-index:10000;
-  box-shadow:-5px 0 25px rgba(0,0,0,.2);
-  display:flex;
-  flex-direction:column;
-  transition:right .3s ease;
-}
-
-#cartDrawer.open{
-  right:0;
-}
-
-.cart-header{
-  padding:20px;
-  border-bottom:1px solid #eee;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:22px;
-}
-
-.cart-header button{
-  border:0;
-  background:none;
-  font-size:24px;
-}
-
-#cartItems{
-  flex:1;
-  overflow-y:auto;
-  padding:15px;
-}
-
-.cart-item{
-  padding:15px 0;
-  border-bottom:1px solid #eee;
-}
-
-.cart-item-name{
-  font-weight:700;
-  margin-bottom:8px;
-}
-
-.cart-item-price{
-  color:#d71920;
-  font-weight:700;
-  margin-bottom:10px;
-}
-
-.cart-controls{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.cart-controls button{
-  width:32px;
-  height:32px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  background:white;
-  font-size:18px;
-}
-
-.cart-footer{
-  padding:18px;
-  border-top:1px solid #eee;
-}
-
-.cart-total{
-  display:flex;
-  justify-content:space-between;
-  font-size:20px;
-  margin-bottom:15px;
-}
-
-.cart-total strong{
-  color:#d71920;
-}
-
-.clear-cart{
-  width:100%;
-  padding:13px;
-  border:0;
-  border-radius:10px;
-  background:#eee;
-  font-size:15px;
-}
-
-.add-cart{
-  width:100%;
-  margin-top:12px;
-  padding:10px;
-  border:0;
-  border-radius:10px;
-  background:#d71920;
-  color:white;
-  font-weight:700;
-}
-
-.add-cart:active{
-  transform:scale(.98);
-}
-
-.empty-cart{
-  text-align:center;
-  color:#999;
-  padding:60px 10px;
-}
-`;
-
-document.head.appendChild(cartStyle);
-
-
-// ==================== CART FUNCTIONS ====================
-
-function addToCart(product){
-  if(product.price === null){
-    alert("这个商品目前价格待更新");
-    return;
-  }
-
-  if(cart[product.name]){
-    cart[product.name].quantity++;
-  }else{
-    cart[product.name] = {
-      ...product,
-      quantity:1
-    };
-  }
-
-  updateCart();
-}
-
-function changeQuantity(name, amount){
-
-  if(!cart[name]) return;
-
-  cart[name].quantity += amount;
-
-  if(cart[name].quantity <= 0){
-    delete cart[name];
-  }
-
-  updateCart();
-}
-
-function updateCart(){
-
-  let totalItems = 0;
-  let totalPrice = 0;
-
-  Object.values(cart).forEach(item => {
-    totalItems += item.quantity;
-    totalPrice += item.price * item.quantity;
-  });
-
-  document.getElementById("cartCount").textContent = totalItems;
-
-  document.getElementById("cartTotal").textContent =
-    `RM ${totalPrice.toFixed(2)}`;
-
-  const container = document.getElementById("cartItems");
-
-  if(Object.keys(cart).length === 0){
-    container.innerHTML = `
-      <div class="empty-cart">
-        🛒<br><br>
-        购物车还是空的
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = "";
-
-  Object.values(cart).forEach(item => {
-
-    const div = document.createElement("div");
-    div.className = "cart-item";
-
-    div.innerHTML = `
-      <div class="cart-item-name">
-        ${item.icon} ${item.name}
-      </div>
-
-      <div class="cart-item-price">
-        RM ${item.price.toFixed(2)}
-      </div>
-
-      <div class="cart-controls">
-        <button onclick="changeQuantity('${item.name}', -1)">−</button>
-        <strong>${item.quantity}</strong>
-        <button onclick="changeQuantity('${item.name}', 1)">+</button>
-      </div>
-    `;
-
-    container.appendChild(div);
-  });
-}
-
-
-// ==================== ADD BUTTONS ====================
-
-const originalRenderProducts = renderProducts;
-
-renderProducts = function(){
-
-  originalRenderProducts();
-
-  const cards = document.querySelectorAll(".product-card");
-
-  cards.forEach(card => {
-
-    const nameElement =
-      card.querySelector(".product-name");
-
-    if(!nameElement) return;
-
-    const productName =
-      nameElement.textContent.trim();
-
-    const product =
-      PRODUCTS.find(p => p.name === productName);
-
-    if(!product) return;
-
-    if(product.price !== null){
-
-      const button =
-        document.createElement("button");
-
-      button.className = "add-cart";
-      button.textContent = "加入购物车";
-
-      button.onclick = () => {
-        addToCart(product);
-      };
-
-      card.appendChild(button);
-    }
-  });
-};
-
-
-// ==================== CART EVENTS ====================
-
-document.getElementById("cartButton").onclick = () => {
-  cartDrawer.classList.add("open");
-};
-
-document.getElementById("closeCart").onclick = () => {
-  cartDrawer.classList.remove("open");
-};
-
-document.getElementById("clearCart").onclick = () => {
-
-  cart = {};
-
-  updateCart();
-};
-
-
-// INITIAL CART
-
-updateCart();
+</body>
+</html>
