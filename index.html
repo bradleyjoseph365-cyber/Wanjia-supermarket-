@@ -2238,15 +2238,15 @@ document.querySelectorAll('.product').forEach(product => {
 });
 
 
-</script>
-
-  let cart = [];
+<!-- Master Engine: Handles the complete shopping cart and product count synchronization -->
+<script>
+let cart = [];
 
 function toggleCart() {
     const panel = document.getElementById('cart-panel');
-    if (panel.style.right === '0px') {
+    if (panel && panel.style.right === '0px') {
         panel.style.right = '-400px';
-    } else {
+    } else if (panel) {
         panel.style.right = '0px';
     }
 }
@@ -2256,19 +2256,17 @@ function addToCart(name, price) {
         alert("This item's price is pending update. Cannot add to cart.");
         return;
     }
-    
-    // Check if item already exists in the cart array
     const existingItem = cart.find(item => item.name === name);
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
         cart.push({ name: name, price: price, quantity: 1 });
     }
-    
     updateCartUI();
     
-    // Optional: open the side panel immediately to show it was added
-    document.getElementById('cart-panel').style.right = '0px';
+    // Automatically slide the cart open so the user knows it worked
+    const panel = document.getElementById('cart-panel');
+    if (panel) panel.style.right = '0px';
 }
 
 function changeQuantity(name, change) {
@@ -2276,7 +2274,7 @@ function changeQuantity(name, change) {
     if (item) {
         item.quantity += change;
         if (item.quantity <= 0) {
-            cart = cart.filter(i => i.name !== name); // Remove if 0
+            cart = cart.filter(i => i.name !== name);
         }
     }
     updateCartUI();
@@ -2287,8 +2285,9 @@ function updateCartUI() {
     const badge = document.getElementById('cart-badge');
     const totalElement = document.getElementById('cart-total-price');
     
-    listContainer.innerHTML = '';
+    if (!listContainer || !badge || !totalElement) return;
     
+    listContainer.innerHTML = '';
     let totalItems = 0;
     let totalPrice = 0;
     
@@ -2300,14 +2299,14 @@ function updateCartUI() {
             totalPrice += item.price * item.quantity;
             
             const itemHTML = `
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #171717;">
                     <div style="max-width: 60%;">
                         <strong style="display: block;">${item.name}</strong>
                         <span style="color: #c9182b;">RM${(item.price * item.quantity).toFixed(2)}</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <button onclick="changeQuantity('${item.name}', -1)" style="width: 25px; height: 25px; border: 1px solid #ccc; background: white; border-radius: 4px; cursor: pointer;">-</button>
-                        <span>${item.quantity}</span>
+                        <span style="font-weight: bold;">${item.quantity}</span>
                         <button onclick="changeQuantity('${item.name}', 1)" style="width: 25px; height: 25px; border: 1px solid #ccc; background: white; border-radius: 4px; cursor: pointer;">+</button>
                     </div>
                 </div>
@@ -2318,6 +2317,42 @@ function updateCartUI() {
     
     badge.innerText = totalItems;
     totalElement.innerText = `RM${totalPrice.toFixed(2)}`;
+    
+    // Trigger the count numbers to update on the main product cards instantly
+    syncProductButtons();
+}
+
+function syncProductButtons() {
+    document.querySelectorAll('.product').forEach(product => {
+        const pbody = product.querySelector('.pbody');
+        if (!pbody) return;
+        
+        const name = product.getAttribute('data-name') || product.querySelector('h3').innerText.trim();
+        const priceText = product.querySelector('.price').innerText;
+        
+        let priceVal = 0;
+        if (!priceText.includes('价格待更新')) {
+            priceVal = parseFloat(priceText.replace(/[^\d.]/g, ''));
+        }
+
+        let button = pbody.querySelector('.add-to-cart-btn');
+        if (!button) {
+            button = document.createElement('button');
+            button.className = 'add-to-cart-btn';
+            button.style.cssText = 'width: 100%; color: white; border: none; padding: 8px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 10px; transition: 0.2s;';
+            button.onclick = () => addToCart(name, priceVal);
+            pbody.appendChild(button);
+        }
+
+        const cartItem = cart.find(item => item.name === name);
+        if (cartItem && cartItem.quantity > 0) {
+            button.innerText = `In Cart: ${cartItem.quantity} ✓`;
+            button.style.background = '#c9182b';
+        } else {
+            button.innerText = '+ Add to Cart';
+            button.style.background = '#171717';
+        }
+    });
 }
 
 function checkout() {
@@ -2325,9 +2360,13 @@ function checkout() {
         alert("Your cart is empty!");
         return;
     }
-    alert("Order Received! Processing your items layout details total: " + document.getElementById('cart-total-price').innerText);
+    alert("Order Received! Total: " + document.getElementById('cart-total-price').innerText);
 }
 
+// Automatically create the buttons shortly after the page renders
+setTimeout(syncProductButtons, 500);
+</script>
 
 </body>
 </html>
+
