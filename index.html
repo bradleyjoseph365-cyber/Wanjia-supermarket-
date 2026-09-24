@@ -2232,6 +2232,41 @@ filterProducts();
 
 filterProducts();
 
+
+  // Automatically loops through every product card and injects the Add to Cart button
+document.querySelectorAll('.product').forEach(product => {
+    const pbody = product.querySelector('.pbody');
+    const name = product.getAttribute('data-name') || product.querySelector('h3').innerText.trim();
+    const priceText = product.querySelector('.price').innerText;
+    
+    // Convert price text like "RM9.00" into a computer number (9.00)
+    // If it says "价格待更新", it safely marks the value as 0
+    let priceVal = 0;
+    if (!priceText.includes('价格待更新')) {
+        priceVal = parseFloat(priceText.replace(/[^\d.]/g, ''));
+    }
+
+    // Check if this product block already has a button injected to prevent double-adding
+    if (!pbody.querySelector('.add-to-cart-btn')) {
+        const button = document.createElement('button');
+        button.className = 'add-to-cart-btn';
+        button.innerText = '+ Add to Cart';
+        
+        // Match the styling theme of your modern website
+        button.style.cssText = 'width: 100%; background: #171717; color: white; border: none; padding: 8px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 10px; transition: 0.2s;';
+        
+        // Simple hover states
+        button.onmouseover = () => button.style.background = '#c9182b';
+        button.onmouseout = () => button.style.background = '#171717';
+        
+        // Connect the click action directly to your existing cart logic array
+        button.onclick = () => addToCart(name, priceVal);
+        
+        pbody.appendChild(button);
+    }
+});
+
+
 </script>
 
   let cart = [];
