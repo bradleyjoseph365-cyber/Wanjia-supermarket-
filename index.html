@@ -2180,12 +2180,12 @@ Wilayah Persekutuan Kuala Lumpur
     </div>
 </footer>
 
-<!-- SYSTEM CONTAINER: Core Shopping Cart UI Elements -->
-<div id="cart-icon-btn" style="position: fixed; bottom: 30px; right: 30px; background: #c9182b; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999999 !important;" onclick="toggleCart()">
-    🛒 <span id="cart-badge" style="position: absolute; top: -5px; right: -5px; background: #171717; color: white; font-size: 12px; font-weight: bold; padding: 3px 7px; border-radius: 50%;">0</span>
+<!-- GLOBAL UNIQUE CONTAINER: Built with absolute layout paths to avoid duplicates -->
+<div id="wanjia-cart-trigger" style="position: fixed; bottom: 30px; right: 30px; background: #c9182b; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999999 !important;" onclick="toggleCart()">
+    🛒 <span id="wanjia-cart-counter" style="position: absolute; top: -5px; right: -5px; background: #171717; color: white; font-size: 12px; font-weight: bold; padding: 3px 7px; border-radius: 50%;">0</span>
 </div>
 
-<div id="cart-panel" style="position: fixed; top: 0; right: -420px; width: 380px; height: 100%; background: white; box-shadow: -5px 0 25px rgba(0,0,0,0.15); z-index: 9999999 !important; transition: 0.3s ease; display: flex; flex-direction: column; font-family: sans-serif; box-sizing: border-box;">
+<div id="cart-panel" style="position: fixed; top: 0; right: -420px; width: 380px; height: 100%; background: white; box-shadow: -5px 0 25px rgba(0,0,0,0.15); z-index: 99999999 !important; transition: 0.3s ease; display: flex; flex-direction: column; font-family: sans-serif; box-sizing: border-box;">
     <div style="padding: 20px; background: #171717; color: white; display: flex; justify-content: space-between; align-items: center;">
         <h3 style="margin: 0; font-size: 18px;">🛒 Shopping Cart / 购物车</h3>
         <button onclick="toggleCart()" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer; line-height: 1;">✕</button>
@@ -2202,7 +2202,7 @@ Wilayah Persekutuan Kuala Lumpur
     </div>
 </div>
 
-<!-- AUTO ENGINE CORE: Pre-Configured for Phone 60186697682 -->
+<!-- AUTO ENGINE MASTER BLOCK -->
 <script>
 let cart = [];
 
@@ -2236,7 +2236,7 @@ function changeQuantity(name, change) {
 
 function updateCartUI() {
     const listContainer = document.getElementById('cart-items-list');
-    const badge = document.getElementById('cart-badge');
+    const badge = document.getElementById('wanjia-cart-counter');
     const totalElement = document.getElementById('cart-total-price');
     
     if (listContainer) {
@@ -2262,6 +2262,7 @@ function updateCartUI() {
             });
         }
         
+        // Updates the new renamed unique badge id
         if (badge) badge.innerText = totalItems;
         if (totalElement) totalElement.innerText = "RM" + totalPrice.toFixed(2);
     }
@@ -2279,10 +2280,8 @@ function syncProductButtons() {
         
         let priceVal = 0;
         if (priceText && !priceText.includes('价格待更新')) {
-            // Error-proof numerical value parser
-            const primaryPrice = priceText.split('/')[0];
-            const numericText = primaryPrice.replace(/[^\d.]/g, '');
-            if (numericText && !isNaN(parseFloat(numericText))) priceVal = parseFloat(numericText);
+            const cleanText = priceText.replace(/[^\d.]/g, '');
+            if (cleanText && !isNaN(parseFloat(cleanText))) priceVal = parseFloat(cleanText);
         }
 
         let button = pbody.querySelector('.add-to-cart-btn');
@@ -2345,13 +2344,15 @@ function filterProducts() {
 function checkout() {
     if (cart.length === 0) return alert("Your cart is empty!");
     
-    let summary = "*New Order from Wanjia Chinese Supermarket*\n\n";
+    let summary = "New Order from Wanjia Chinese Supermarket\n\n";
     cart.forEach(i => summary += "• " + i.name + " (x" + i.quantity + ") - RM" + (i.price * i.quantity).toFixed(2) + "\n");
-    summary += "\n*Total Amount:* " + document.getElementById('cart-total-price').innerText;
+    summary += "\nTotal Amount: " + document.getElementById('cart-total-price').innerText;
     
-    // ✅ FIXED: Hardcoded your exact phone number with proper simple syntax addition string routing
     const storeNumber = "60186697682"; 
-    window.open("https://wa.me" + storeNumber + "?text=" + encodeURIComponent(summary), "_blank");
+    
+    // ✅ FIX: Uses full explicit HTTPS protocol links to prevent web browser parsing errors
+    const finalLink = "https://whatsapp.com" + storeNumber + "&text=" + encodeURIComponent(summary);
+    window.open(finalLink, "_blank");
 }
 
 setTimeout(syncProductButtons, 400);
@@ -2371,5 +2372,5 @@ setTimeout(() => {
     });
 }, 600);
 </script>
-</body>
+</head>
 </html>
