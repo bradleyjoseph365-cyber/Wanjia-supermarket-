@@ -2180,7 +2180,7 @@ Wilayah Persekutuan Kuala Lumpur
     </div>
 </footer>
 
-<!-- GLOBAL UNIQUE CONTAINER: Built with absolute layout paths to avoid duplicates -->
+<!-- GLOBAL UNIQUE CONTAINER -->
 <div id="wanjia-cart-trigger" style="position: fixed; bottom: 30px; right: 30px; background: #c9182b; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999999 !important;" onclick="toggleCart()">
     🛒 <span id="wanjia-cart-counter" style="position: absolute; top: -5px; right: -5px; background: #171717; color: white; font-size: 12px; font-weight: bold; padding: 3px 7px; border-radius: 50%;">0</span>
 </div>
@@ -2198,7 +2198,8 @@ Wilayah Persekutuan Kuala Lumpur
             <span>Total / 总计:</span>
             <span id="cart-total-price" style="color: #c9182b;">RM0.00</span>
         </div>
-        <button onclick="checkout()" style="width: 100%; background: #c9182b; color: white; border: none; padding: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 16px;">Proceed to Checkout / 结账</button>
+        <!-- 💡 Added unique ID for complete JavaScript target lock override -->
+        <button id="wanjia-checkout-btn" style="width: 100%; background: #c9182b; color: white; border: none; padding: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 16px; display: block !important;">Proceed to Checkout / 结账</button>
     </div>
 </div>
 
@@ -2262,7 +2263,6 @@ function updateCartUI() {
             });
         }
         
-        // Updates the new renamed unique badge id
         if (badge) badge.innerText = totalItems;
         if (totalElement) totalElement.innerText = "RM" + totalPrice.toFixed(2);
     }
@@ -2292,7 +2292,7 @@ function syncProductButtons() {
             button.onclick = (e) => {
                 e.stopPropagation();
                 if (priceVal === 0) {
-                    alert("This item's price is pending update / 此商品价格待更新，暂不能加入购物车。");
+                    alert("This item's price is pending update / 此商品价格待更新。");
                 } else {
                     addToCart(name, priceVal);
                 }
@@ -2341,24 +2341,38 @@ function filterProducts() {
     if (countContainer) countContainer.innerText = `共显示 ${visibleCount} 项商品`;
 }
 
-function checkout() {
-    if (cart.length === 0) return alert("Your cart is empty!");
+// 👑 MASTER OVERRIDE FUNCTION: Bypasses popups and forces direct browser redirection
+function runGlobalCheckoutOverride() {
+    if (cart.length === 0) {
+        alert("Your cart is empty / 您的购物车还是空的！");
+        return;
+    }
     
     let summary = "New Order from Wanjia Chinese Supermarket\n\n";
     cart.forEach(i => summary += "• " + i.name + " (x" + i.quantity + ") - RM" + (i.price * i.quantity).toFixed(2) + "\n");
     summary += "\nTotal Amount: " + document.getElementById('cart-total-price').innerText;
     
     const storeNumber = "60186697682"; 
+    const checkoutLink = "https://whatsapp.com" + storeNumber + "&text=" + encodeURIComponent(summary);
     
-    // ✅ BYPASSES POP-UP BLOCKERS: Redirects the current tab directly instead of opening a new window
-    const finalLink = "https://whatsapp.com" + storeNumber + "&text=" + encodeURIComponent(summary);
-    window.location.href = finalLink;
+    // Direct same-tab native redirection system
+    window.location.replace(checkoutLink);
 }
 
-
+// Initialize system anchors
 setTimeout(syncProductButtons, 400);
 
 setTimeout(() => {
+    // 🔗 Hard-binds click target trigger parameters directly to button element via script memory
+    const realCheckoutBtn = document.getElementById('wanjia-checkout-btn');
+    if (realCheckoutBtn) {
+        realCheckoutBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            runGlobalCheckoutOverride();
+        };
+    }
+
     const search = document.getElementById('search');
     if (search) search.addEventListener('input', filterProducts);
     
@@ -2373,5 +2387,5 @@ setTimeout(() => {
     });
 }, 600);
 </script>
-</head>
+</body>
 </html>
