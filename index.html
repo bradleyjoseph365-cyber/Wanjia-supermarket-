@@ -2280,17 +2280,31 @@ function syncProductButtons() {
         const priceText = priceElement ? priceElement.innerText : '0';
         
         let priceVal = 0;
-        const numericText = priceText.replace(/[^\d.]/g, '');
-        if (numericText && !isNaN(parseFloat(numericText))) priceVal = parseFloat(numericText);
+        
+        // 1. Check if the text implies a pending price placeholder
+        if (priceText && !priceText.includes('价格待更新')) {
+            // 2. If it contains dual prices (e.g., RM11.00 / RM15.00), grab the first option
+            const primaryPrice = priceText.split('/')[0];
+            // 3. Clean out letters like 'RM' and isolate pure mathematical digits
+            const numericText = primaryPrice.replace(/[^\d.]/g, '');
+            if (numericText && !isNaN(parseFloat(numericText))) {
+                priceVal = parseFloat(numericText);
+            }
+        }
 
         let button = pbody.querySelector('.add-to-cart-btn');
         if (!button) {
             button = document.createElement('button');
             button.className = 'add-to-cart-btn';
             button.style.cssText = 'width: 100%; color: white; border: none; padding: 10px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 10px; font-size: 14px; background: #171717; display: block !important;';
+            
             button.onclick = (e) => {
                 e.stopPropagation();
-                addToCart(name, priceVal);
+                if (priceVal === 0) {
+                    alert("This item's price is pending update / 此商品价格待更新，暂不能加入购物车。");
+                } else {
+                    addToCart(name, priceVal);
+                }
             };
             pbody.appendChild(button);
         }
@@ -2305,6 +2319,7 @@ function syncProductButtons() {
         }
     });
 }
+
 
 function filterProducts() {
     const searchInput = document.getElementById('search');
