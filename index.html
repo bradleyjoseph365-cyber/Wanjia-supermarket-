@@ -2344,13 +2344,18 @@ function filterProducts() {
 
 function checkout() {
     if (cart.length === 0) return alert("Your cart is empty!");
+    
     let summary = "*New Order from Wanjia Chinese Supermarket*\n\n";
     cart.forEach(i => summary += `• ${i.name} (x${i.quantity}) - RM${(i.price * i.quantity).toFixed(2)}\n`);
     summary += `\n*Total Amount:* ${document.getElementById('cart-total-price').innerText}`;
     
+    // ➡️ TYPE THE PHONE NUMBER INSTEAD OF 60123456789 BELOW ⬅️
     const storeNumber = "60186697682"; 
-    window.open(`https://wa.me{storeNumber}?text=${encodeURIComponent(summary)}`, '_blank');
+    
+    // Direct, simple URL connection string
+    window.open("https://wa.me" + storeNumber + "?text=" + encodeURIComponent(summary), "_blank");
 }
+
 
 setTimeout(syncProductButtons, 400);
 
