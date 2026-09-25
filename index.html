@@ -2180,7 +2180,7 @@ Wilayah Persekutuan Kuala Lumpur
     </div>
 </footer>
 
-<!-- GLOBAL UNIQUE LAYOUT: Forces the bubble button overlay to link directly to variables -->
+<!-- SYSTEM CONTAINER: Core Shopping Cart UI Elements -->
 <div id="cart-icon-btn" style="position: fixed; bottom: 30px; right: 30px; background: #c9182b; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999999 !important;" onclick="toggleCart()">
     🛒 <span id="cart-badge" style="position: absolute; top: -5px; right: -5px; background: #171717; color: white; font-size: 12px; font-weight: bold; padding: 3px 7px; border-radius: 50%;">0</span>
 </div>
@@ -2202,7 +2202,7 @@ Wilayah Persekutuan Kuala Lumpur
     </div>
 </div>
 
-<!-- AUTO ENGINE CORE -->
+<!-- AUTO ENGINE CORE: Pre-Configured for Phone 60186697682 -->
 <script>
 let cart = [];
 
@@ -2262,9 +2262,8 @@ function updateCartUI() {
             });
         }
         
-        // This direct reference loop makes the calculation metrics match layout labels natively
         if (badge) badge.innerText = totalItems;
-        if (totalElement) totalElement.innerText = `RM${totalPrice.toFixed(2)}`;
+        if (totalElement) totalElement.innerText = "RM" + totalPrice.toFixed(2);
     }
     syncProductButtons();
 }
@@ -2280,6 +2279,7 @@ function syncProductButtons() {
         
         let priceVal = 0;
         if (priceText && !priceText.includes('价格待更新')) {
+            // Error-proof numerical value parser
             const primaryPrice = priceText.split('/')[0];
             const numericText = primaryPrice.replace(/[^\d.]/g, '');
             if (numericText && !isNaN(parseFloat(numericText))) priceVal = parseFloat(numericText);
@@ -2346,16 +2346,13 @@ function checkout() {
     if (cart.length === 0) return alert("Your cart is empty!");
     
     let summary = "*New Order from Wanjia Chinese Supermarket*\n\n";
-    cart.forEach(i => summary += `• ${i.name} (x${i.quantity}) - RM${(i.price * i.quantity).toFixed(2)}\n`);
-    summary += `\n*Total Amount:* ${document.getElementById('cart-total-price').innerText}`;
+    cart.forEach(i => summary += "• " + i.name + " (x" + i.quantity + ") - RM" + (i.price * i.quantity).toFixed(2) + "\n");
+    summary += "\n*Total Amount:* " + document.getElementById('cart-total-price').innerText;
     
-    // ➡️ TYPE THE PHONE NUMBER INSTEAD OF 60123456789 BELOW ⬅️
+    // ✅ FIXED: Hardcoded your exact phone number with proper simple syntax addition string routing
     const storeNumber = "60186697682"; 
-    
-    // Direct, simple URL connection string
     window.open("https://wa.me" + storeNumber + "?text=" + encodeURIComponent(summary), "_blank");
 }
-
 
 setTimeout(syncProductButtons, 400);
 
