@@ -2350,10 +2350,11 @@ function checkout() {
     
     const storeNumber = "60186697682"; 
     
-    // ✅ FIX: Uses full explicit HTTPS protocol links to prevent web browser parsing errors
+    // ✅ BYPASSES POP-UP BLOCKERS: Redirects the current tab directly instead of opening a new window
     const finalLink = "https://whatsapp.com" + storeNumber + "&text=" + encodeURIComponent(summary);
-    window.open(finalLink, "_blank");
+    window.location.href = finalLink;
 }
+
 
 setTimeout(syncProductButtons, 400);
 
