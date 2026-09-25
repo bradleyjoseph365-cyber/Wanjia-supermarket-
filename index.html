@@ -2198,8 +2198,9 @@ Wilayah Persekutuan Kuala Lumpur
             <span>Total / 总计:</span>
             <span id="cart-total-price" style="color: #c9182b;">RM0.00</span>
         </div>
-        <!-- 💡 Added unique ID for complete JavaScript target lock override -->
-        <button id="wanjia-checkout-btn" style="width: 100%; background: #c9182b; color: white; border: none; padding: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 16px; display: block !important;">Proceed to Checkout / 结账</button>
+        
+        <!-- 🔗 FIXED: Transformed into a native HTML link. It bypasses JS code constraints entirely -->
+        <a id="wanjia-checkout-btn" href="https://whatsapp.com." target="_blank" style="width: 100%; background: #c9182b; color: white; border: none; padding: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 16px; display: block !important; text-align: center; text-decoration: none; box-sizing: border-box;">Proceed to Checkout / 结账</a>
     </div>
 </div>
 
@@ -2266,7 +2267,30 @@ function updateCartUI() {
         if (badge) badge.innerText = totalItems;
         if (totalElement) totalElement.innerText = "RM" + totalPrice.toFixed(2);
     }
+    
+    // 📊 DYNAMIC UPDATE: Updates the link text destination every time an item changes
+    updateWhatsAppLink();
     syncProductButtons();
+}
+
+function updateWhatsAppLink() {
+    const checkoutLink = document.getElementById('wanjia-checkout-btn');
+    if (!checkoutLink) return;
+
+    if (cart.length === 0) {
+        checkoutLink.href = "javascript:alert('Your cart is empty / 您的购物车还是空的！');";
+        return;
+    }
+    
+    let summary = "*New Order from Wanjia Chinese Supermarket Website*\n\n";
+    cart.forEach(i => {
+        summary += "• " + i.name + " (x" + i.quantity + ") - RM" + (i.price * i.quantity).toFixed(2) + "\n";
+    });
+    summary += "\n*Total Amount:* " + document.getElementById('cart-total-price').innerText;
+    
+    const storeNumber = "60186697682"; 
+    // Updates the native HTML attribute safely
+    checkoutLink.href = "https://whatsapp.com" + storeNumber + "&text=" + encodeURIComponent(summary);
 }
 
 function syncProductButtons() {
@@ -2281,7 +2305,7 @@ function syncProductButtons() {
         let priceVal = 0;
         if (priceText && !priceText.includes('价格待更新')) {
             const cleanText = priceText.replace(/[^\d.]/g, '');
-            if (cleanText && !isNaN(parseFloat(cleanText))) priceVal = parseFloat(cleanText);
+            if (cleanText && !isNaN(parseFloat(cleanText))) priceVal = parseFloat(numericText);
         }
 
         let button = pbody.querySelector('.add-to-cart-btn');
@@ -2341,38 +2365,9 @@ function filterProducts() {
     if (countContainer) countContainer.innerText = `共显示 ${visibleCount} 项商品`;
 }
 
-// 👑 MASTER OVERRIDE FUNCTION: Bypasses popups and forces direct browser redirection
-function runGlobalCheckoutOverride() {
-    if (cart.length === 0) {
-        alert("Your cart is empty / 您的购物车还是空的！");
-        return;
-    }
-    
-    let summary = "New Order from Wanjia Chinese Supermarket\n\n";
-    cart.forEach(i => summary += "• " + i.name + " (x" + i.quantity + ") - RM" + (i.price * i.quantity).toFixed(2) + "\n");
-    summary += "\nTotal Amount: " + document.getElementById('cart-total-price').innerText;
-    
-    const storeNumber = "60186697682"; 
-    const checkoutLink = "https://whatsapp.com" + storeNumber + "&text=" + encodeURIComponent(summary);
-    
-    // Direct same-tab native redirection system
-    window.location.replace(checkoutLink);
-}
-
-// Initialize system anchors
 setTimeout(syncProductButtons, 400);
 
 setTimeout(() => {
-    // 🔗 Hard-binds click target trigger parameters directly to button element via script memory
-    const realCheckoutBtn = document.getElementById('wanjia-checkout-btn');
-    if (realCheckoutBtn) {
-        realCheckoutBtn.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            runGlobalCheckoutOverride();
-        };
-    }
-
     const search = document.getElementById('search');
     if (search) search.addEventListener('input', filterProducts);
     
